@@ -1,0 +1,12 @@
+mixin lazyBlur(data)
+	figure.lazyBlur&attributes(attributes)
+		.lazy-blur
+			img.lazy-blur__imgS(src=data.imgS data-src=data.imgL alt="")
+			noscript
+				img(src=data.imgL alt="")
+
+//- @demo
+	+lazyBlure({
+		imgS: `${baseDir}images/article-1/main-sm.jpg`,
+		imgL: `${baseDir}images/article-1/main.jpg`,
+	})

@@ -1,0 +1,18 @@
+@use 'sass:math';
+
+@function vw($value, $base: $desktop-md) {
+	@return math.div($value, $base) * 100vw;
+}
+
+@function vm($value, $base: 375) {
+	@return math.div($value, $base) * 100vmin;
+}
+
+@function vc($value) {
+	@return calc(#{$value} * var(--width-multiplier));
+}
+
+// vh - для адаптации стилей под высоту страницы
+@function vh($value, $base: $desktop-vh) {
+	@return $value / $base * 100vh;
+}

@@ -1,0 +1,30 @@
+// COLORS
+$color-black: #000;
+$color-white: #fff;
+$color-green: #7AD927;
+$color-orange: #FF6E00;
+
+// FONTS
+$font-base: 'PPPangramSans', Arial, sans-serif;
+$font-mulish: 'Mulish', Arial, sans-serif;
+$font-BornStrong: 'BornStrong', Arial, sans-serif;
+$font-BebasNeue: 'BebasNeue', Arial, sans-serif;
+$font-base-size: 16;
+$font-base-height: 140%;
+
+// TRANSITIONS
+$transition-duration: 0.35s;
+$transition-btn: 0.35s;
+$transition-timing-function: ease;
+$transition: $transition-duration $transition-timing-function;
+
+// SETTINGS
+$desktop-xxl: 2560;
+$desktop-xl: 1920;
+$desktop-lg: 1680;
+$desktop-md: 1440;
+$desktop-sm: 1366;
+$desktop-xs: 1280;
+$desktop-vh: 1000;
+$desktop: 1024;
+$tablet: 1024;

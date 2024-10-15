@@ -1,0 +1,28 @@
++popup({id: `product-7`}).popup-bars
+	+b.popupBars
+		+e.img-wrapper
+			+e.IMG.img-product(src=`${baseDir}assets/images/bars/5.png` alt="")
+			+e.IMG.img-bg(src=`${baseDir}assets/images/home/product-bg.png` alt="")
+		+e.content
+			+e.top
+				+e.title WILD BERRIES
+
+				.tabs
+					ul.tab-menu
+						li.tab-link.active(data-tab='tab-product-7-1' data-i18n="common.menu_1") Описание
+						li.tab-link(data-tab='tab-product-7-2' data-i18n="common.menu_2") Состав
+						li.tab-link(data-tab='tab-product-7-3' data-i18n="common.menu_3") Пищевая ценность
+
+					+b.tab-content.js-custom-scrollbar.active#tab-product-7-1
+						+e.subtitle(data-i18n="common.products.text_3") Описание:
+						+e.desc(data-i18n="products.prod_7.text") Батончик с&nbsp;лесными ягодами&nbsp;&mdash; это вкус приключений, который вдохновляет на&nbsp;новые свершения. В&nbsp;нём целых 12,9&nbsp;г протеина, который помогает поддерживать вашу силу и&nbsp;энергию. В&nbsp;дополнение к&nbsp;этому в&nbsp;составе еще имеется:
+					+b.tab-content.js-custom-scrollbar#tab-product-7-2
+						+e.subtitle.mb(data-i18n="common.products.text_4") Состав:
+						+e.desc
+							span(data-i18n="products.prod_7.tab_1.text_1")
+							br
+							span(data-i18n="products.prod_7.tab_1.text_2")
+					+b.tab-content.js-custom-scrollbar#tab-product-7-3
+						+e.IMG.graph(src=`${baseDir}assets/images/bars/graph-5.png` alt="")
+
+			+e.BUTTON.btn-back.popup__close(type="button" data-i18n="back") Назад

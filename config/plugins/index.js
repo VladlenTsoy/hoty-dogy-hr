@@ -1,0 +1,12 @@
+export { Clean } from './Clean';
+export { Copy } from './Copy';
+export { HtmlPages } from './HtmlPages';
+export { MiniCssExtract } from './MiniCssExtract';
+export { HotModuleReplacement } from './HotModuleReplacement';
+export { ESLint } from './ESLint';
+export { SVGSpritemap } from './SVGSpritemap';
+export { Interpolate } from './Interpolate';
+export { WebpackBuildNotifier } from './WebpackBuildNotifier';
+export { Dashboard } from './Dashboard';
+export { RemoveFiles } from './RemoveFiles';
+export { Define } from './Define';

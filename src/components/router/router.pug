@@ -1,0 +1,4 @@
+mixin router(pageName)
+	+b.router(data-barba="wrapper")&attributes(attributes)
+		+e.container(data-barba="container" data-barba-namespace=pageName)
+			block

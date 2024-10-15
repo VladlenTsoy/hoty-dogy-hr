@@ -1,0 +1,87 @@
++popup({id: `product-1`}).popup-vitamins
+	+b.popupVitamins
+		+e.IMG.img(src=`${baseDir}assets/images/vitamins/1.png` alt="")
+		+e.content
+			+e.top
+				+e.title Multi Vitamin #[br] for men
+
+				.tabs
+					ul.tab-menu.js-custom-scrollbar
+						li.tab-link.active(data-tab='tab-product-1-1' data-i18n="common.menu_1") Описание
+						li.tab-link(data-tab='tab-product-1-2' data-i18n="common.menu_2") Состав
+						li.tab-link(data-tab='tab-product-1-3' data-i18n="common.menu_3") Пищевая ценность
+						li.tab-link(data-tab='tab-product-1-4' data-i18n="common.menu_4") Свойства
+						li.tab-link(data-tab='tab-product-1-5' data-i18n="common.menu_5") Показания
+						li.tab-link(data-tab='tab-product-1-6' data-i18n="common.menu_6") Противопоказание
+						li.tab-link(data-tab='tab-product-1-7' data-i18n="common.menu_7") Сертификаты
+
+					+b.tab-content.js-custom-scrollbar.active#tab-product-1-1
+						+e.text(data-i18n="products.prod_1.text") Наши мультивитамины для мужчин&nbsp;&mdash; это не&nbsp;просто источник здоровья, это ваш ежедневный заряд уверенности и&nbsp;энергии. Эти витамины созданы для тех, кто стремится к&nbsp;достижению новых высот, преодолевая любые препятствия на&nbsp;своём пути.
+						+e.ul.mt
+							+e.ul-item
+								span.is-bold(data-i18n="common.products.text_1") Применение:
+								span(data-i18n="products.prod_1.tab_1.text_1") по&nbsp;2&nbsp;капсулы 3&nbsp;раза в&nbsp;день за&nbsp;30-45 минут до&nbsp;еды по&nbsp;указанию специалиста.
+							+e.ul-item
+								span.is-bold(data-i18n="common.products.text_2") Условия хранения:
+								span(data-i18n="products.prod_1.tab_1.text_2") Хранить в&nbsp;сухом, защищенном от&nbsp;света месте, при температуре не&nbsp;выше 25&deg;С.
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_1.text_3") Срок хранения 24&nbsp;месяца.
+
+					+b.tab-content.js-custom-scrollbar#tab-product-1-2
+						+e.ul
+							+e.ul-item
+								span(data-i18n="products.prod_1.tab_2.text_1") 8&nbsp;витаминов (A, C, D, B-комплекс)]&nbsp;&mdash; поддерживают иммунитет, улучшают обмен веществ и&nbsp;помогают сохранять ясность ума.
+							+e.ul-item
+								span(data-i18n="products.prod_1.tab_2.text_2") 2&nbsp;минерала (кальций и&nbsp;цинк)]&nbsp;&mdash; укрепляют кости и&nbsp;поддерживают здоровье кожи.
+							+e.ul-item
+								span(data-i18n="products.prod_1.tab_2.text_3") 6&nbsp;аминокислот (лейцин, валин, изолейцин и&nbsp;другие)]&nbsp;&mdash; способствуют восстановлению и&nbsp;росту мышц, помогая вам справляться с&nbsp;физическими нагрузками.
+							+e.ul-item
+								span(data-i18n="products.prod_1.tab_2.text_4") 6&nbsp;экстрактов (женьшень, гинкго билоба, зелёный чай и&nbsp;другие)]&nbsp;&mdash; заряжают энергией, улучшают концентрацию и&nbsp;помогают сохранять спокойствие в&nbsp;любой ситуации.
+
+					+b.tab-content.js-custom-scrollbar#tab-product-1-3
+						+e.IMG.graph(src=`${baseDir}assets/images/vitamins/graph-1.png` alt="")
+					+b.tab-content.js-custom-scrollbar#tab-product-1-4
+						+e.ul
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_3.text_1") Улучшает обмен веществ
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_3.text_2") Успокаивает нервы
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_3.text_3") Борется с&nbsp;эректильной дисфункцией у&nbsp;мужчин
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_3.text_5") Обеспечивает дополнительную энергию
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_3.text_6") Помогает избавиться от&nbsp;лишнего веса
+
+					+b.tab-content.js-custom-scrollbar#tab-product-1-5
+						+e.ul
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_4.text_1") Общая слабость
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_4.text_2") Синдром хронической усталости
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_4.text_3") Половая слабость
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_4.text_4") Вторичное бесплодие
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_4.text_5") Избыточный вес и&nbsp;ожирение
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_4.text_6") Простатит (в&nbsp;составе комплексной терапии)
+
+					+b.tab-content.js-custom-scrollbar#tab-product-1-6
+						+e.ul
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_5.text_1") При повышенной чувствительности к&nbsp;компонентам продукта.
+							+e.ul-item
+								span.is-bold(data-i18n="products.prod_1.tab_5.text_2") Тяжелая сердечная, печеночная и&nbsp;почечная недостаточность.
+					+b.tab-content.js-custom-scrollbar#tab-product-1-7
+						+e.slider.js-slider
+							.swiper-wrapper
+								+e.slider-item.swiper-slide
+									+e.slider-text(data-i18n="products.prod_1.tab_6.text_1") #[span.is-bold ISO (Международная организация по&nbsp;стандартизации)]&nbsp;&mdash; это система стандартов, которые гарантируют, что продукция производится с&nbsp;соблюдением строгих норм качества, безопасности и&nbsp;эффективности. Не&nbsp;каждая компания получает этот сертификат, поскольку для его получения необходимо пройти тщательные проверки и&nbsp;соответствовать международным стандартам. Продукты с&nbsp;сертификатом ISO&nbsp;&mdash; это знак того, что они производятся по&nbsp;самым высоким стандартам в&nbsp;отрасли.
+								+e.slider-item.swiper-slide
+									+e.slider-text(data-i18n="products.prod_1.tab_6.text_2") #[span.is-bold HALAL]&nbsp;&mdash; это сертификат, который подтверждает, что продукт соответствует требованиям исламских норм и&nbsp;может употребляться мусульманами. Сертификация HALAL гарантирует, что продукция изготавливается с&nbsp;соблюдением строгих требований, исключающих использование запрещённых ингредиентов и&nbsp;методов производства. Этот сертификат также выдаётся не&nbsp;всем, а&nbsp;только тем компаниям, которые соответствуют установленным религиозным стандартам.
+								+e.slider-item.swiper-slide
+									+e.slider-text(data-i18n="products.prod_1.tab_6.text_3") #[span.is-bold 100% натуральный продукт гарантирует использование исключительно природных ингредиентов, без синтетики, красителей и&nbsp;консервантов. Этот сертификат выдаётся продуктам, соответствующим строгим стандартам натуральности на&nbsp;всех этапах производства&nbsp;&mdash; от&nbsp;сырья до&nbsp;упаковки. Он&nbsp;подтверждает, что продукт полностью натуральный, безопасный для здоровья и&nbsp;окружающей среды.]
+							.swiper-pagination
+			+e.BUTTON.btn-back.popup__close(type="button" data-i18n="back") Назад

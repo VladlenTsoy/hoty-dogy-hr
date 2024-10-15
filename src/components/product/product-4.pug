@@ -1,0 +1,28 @@
++popup({id: `product-4`}).popup-bars
+	+b.popupBars
+		+e.img-wrapper
+			+e.IMG.img-product(src=`${baseDir}assets/images/bars/2.png` alt="")
+			+e.IMG.img-bg(src=`${baseDir}assets/images/home/product-bg.png` alt="")
+		+e.content
+			+e.top
+				+e.title STRAWBERRY, CREAM VANILLA & HAZELNUT
+
+				.tabs
+					ul.tab-menu
+						li.tab-link.active(data-tab='tab-product-4-1' data-i18n="common.menu_1") Описание
+						li.tab-link(data-tab='tab-product-4-2' data-i18n="common.menu_2") Состав
+						li.tab-link(data-tab='tab-product-4-3' data-i18n="common.menu_3") Пищевая ценность
+
+					+b.tab-content.js-custom-scrollbar.active#tab-product-4-1
+						+e.subtitle(data-i18n="common.products.text_3") Описание:
+						+e.desc(data-i18n="products.prod_4.text") Батончик с&nbsp;клубникой и&nbsp;фундуком&nbsp;&mdash; это настоящий заряд позитива и&nbsp;лёгкости, который добавит красок даже в&nbsp;самый серый день. В&nbsp;нём #[span.is-green 12,5&nbsp;г протеина], которые помогают поддерживать ваши мышцы в&nbsp;отличной форме. Помимо этого в&nbsp;составе имеется:
+					+b.tab-content.js-custom-scrollbar#tab-product-4-2
+						+e.subtitle.mb(data-i18n="common.products.text_4") Состав:
+						+e.desc
+							span(data-i18n="products.prod_4.tab_1.text_1")
+							br
+							span(data-i18n="products.prod_4.tab_1.text_2")
+					+b.tab-content.js-custom-scrollbar#tab-product-4-3
+						+e.IMG.graph(src=`${baseDir}assets/images/bars/graph-2.png` alt="")
+
+			+e.BUTTON.btn-back.popup__close(type="button" data-i18n="back") Назад

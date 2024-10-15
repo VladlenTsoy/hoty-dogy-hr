@@ -1,0 +1,28 @@
++popup({id: `product-5`}).popup-bars
+	+b.popupBars
+		+e.img-wrapper
+			+e.IMG.img-product(src=`${baseDir}assets/images/bars/3.png` alt="")
+			+e.IMG.img-bg(src=`${baseDir}assets/images/home/product-bg.png` alt="")
+		+e.content
+			+e.top
+				+e.title MANGO & CASHEW
+
+				.tabs
+					ul.tab-menu
+						li.tab-link.active(data-tab='tab-product-5-1' data-i18n="common.menu_1") Описание
+						li.tab-link(data-tab='tab-product-5-2' data-i18n="common.menu_2") Состав
+						li.tab-link(data-tab='tab-product-5-3' data-i18n="common.menu_3") Пищевая ценность
+
+					+b.tab-content.js-custom-scrollbar.active#tab-product-5-1
+						+e.subtitle(data-i18n="common.products.text_3") Описание:
+						+e.desc(data-i18n="products.prod_5.text") Этот батончик&nbsp;&mdash; не&nbsp;просто экзотический вкус, это маленький праздник для вашего организма. В&nbsp;нём 12,5&nbsp;г протеина, что означает поддержку ваших мышц и&nbsp;активного образа жизни. Кроме того в&nbsp;составе имеется:
+					+b.tab-content.js-custom-scrollbar#tab-product-5-2
+						+e.subtitle.mb(data-i18n="common.products.text_4") Состав:
+						+e.desc
+							span(data-i18n="products.prod_5.tab_1.text_1")
+							br
+							span(data-i18n="products.prod_5.tab_1.text_2")
+					+b.tab-content.js-custom-scrollbar#tab-product-5-3
+						+e.IMG.graph(src=`${baseDir}assets/images/bars/graph-3.png` alt="")
+
+			+e.BUTTON.btn-back.popup__close(type="button" data-i18n="back") Назад

@@ -1,0 +1,23 @@
+// stylelint-disable at-rule-empty-line-before
+
+// не трогать этот импорт, он нужен для работы svg-спрайтов
+// @import './sprites';
+
+@import 'reset';
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'fonts';
+@import 'base';
+@import 'helpers';
+
+@import '@components/header/header';
+@import '@components/footer/footer';
+@import '@components/lazyBlur/lazyBlur';
+@import '@components/product/product';
+@import '@components/popup/popup';
+@import '@components/popup/popupVitamins';
+@import '@components/popup/popupBars';
+@import '@components/popup/popupSuccess';
+
+@import '@pages/home/home';

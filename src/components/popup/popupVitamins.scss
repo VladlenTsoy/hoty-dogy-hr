@@ -1,0 +1,94 @@
+.popupVitamins {
+	padding: vc(50) vc(24) vc(20);
+	height: 100%;
+
+	.tab-content {
+		height: vc(117);
+
+		@include devices {
+			height: calc((var(--vh) * 20) / 100);
+		}
+	}
+
+	&__title {
+		font-family: $font-BornStrong;
+		font-weight: 300;
+		font-size: vc(30);
+		line-height: 115%;
+		margin-top: vc(3);
+		margin-bottom: vc(14);
+	}
+
+	&__img {
+		position: absolute;
+		right: vc(-8);
+		top: vc(-18);
+		width: vc(332);
+		transform: translateY(-50%) !important;
+		pointer-events: none;
+
+		@include desktop-vh {
+			width: vh(332);
+		}
+
+		@include devices {
+			top: vc(46);
+			right: 0;
+			left: 0;
+			margin: 0 auto;
+			width: vh(332);
+		}
+	}
+
+	&__content {
+		width: vc(547);
+
+		@include devices {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 100%;
+			flex: 1 1 auto;
+		}
+	}
+
+	&__btn-back {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: vc(250);
+		height: vc(56);
+		border-radius: vc(16);
+		font-weight: 300;
+		font-size: vc(15);
+		line-height: 110%;
+		background: #434343;
+		margin-top: vc(20);
+		transition: background 0.4s ease-in-out;
+		cursor: pointer;
+
+		@include desktop {
+			&:hover {
+				background: #373737;
+			}
+		}
+
+		@include devices {
+			margin-top: vc(10);
+			width: calc(100% - vc(24));
+		}
+	}
+
+	&__top {
+		@include devices {
+			flex: 1 1 auto;
+		}
+	}
+
+	@include devices {
+		display: flex;
+		padding-top: vc(202);
+		padding-top: calc((var(--vh) * 23.5) / 100);
+		padding-right: 0;
+	}
+}

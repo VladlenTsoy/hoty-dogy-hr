@@ -1,0 +1,38 @@
+mixin picture(props = {})
+	-
+		const srcset = props.retina ? `${props.path}.${props.ext}, ${props.path}@2x.${props.ext} 2x` : `${props.path}.${props.ext}`;
+		const src = `${props.path}.${props.ext}`;
+		const srcMobile = props.mobile ? `${props.path}-mobile.${props.ext}` : null;
+		const alt = props.alt ?? '';
+		const mime = props.mime ?? props.ext;
+		const decoding = props.decoding ?? 'async';
+		const mediaDesktop = '(min-width: 1025px)';
+		const mediaMobile = '(max-width: 1024px)';
+
+	if props.mobile
+		picture&attributes(attributes)
+			source(srcset=srcMobile type=`image/${mime}` media=mediaMobile)
+			source(srcset=srcset type=`image/${mime}` media=mediaDesktop)
+			img(src=src alt=alt decoding=decoding width=props.width height=props.height)
+	else if props.onlyDesktop
+		picture&attributes(attributes)
+			source(media=mediaMobile srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==")
+			source(srcset=srcset media=mediaDesktop)
+			img(src=src alt=alt decoding=decoding width=props.width height=props.height)
+	else if props.onlyMobile
+		picture&attributes(attributes)
+			source(media=mediaDesktop srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==")
+			img(src=src alt=alt decoding=decoding width=props.width height=props.height)
+	else
+		picture&attributes(attributes)
+			source(srcset=srcset)
+			img(src=src alt=alt decoding=decoding width=props.width height=props.height)
+
+//- @demo
+	+picture({
+		path: `${baseDir}assets/images/picture`,
+		ext: 'jpg',
+		onlyDesktop: true,
+		retina: true,
+		mobile: true,
+	}).main
