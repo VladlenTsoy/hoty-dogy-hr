@@ -1,11 +1,9 @@
 .header {
-	position: absolute;
-	top: vc(4);
-	left: 0;
-	right: 0;
+	position: relative;
 	z-index: 20;
 	display: flex;
 	justify-content: center;
+	margin-top: vc(4);
 	padding: vc(18) vc(76) vc(22);
 	border-radius: vc(30);
 	background: $color-white;

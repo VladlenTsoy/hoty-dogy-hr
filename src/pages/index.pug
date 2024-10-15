@@ -27,27 +27,43 @@ block content
 		include @components/header/header
 
 		+b.home-intro
-			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="intro.title") Добро пожаловать
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext") Мы&nbsp;рады, что вы&nbsp;среди тех, кто первым познакомился с&nbsp;нашим лимитированным выпуском. Это ваш шаг к&nbsp;качеству и&nbsp;результатам, а&nbsp;мы&nbsp;гордимся быть частью этого пути. Впереди&nbsp;&mdash; новые достижения, которые мы&nbsp;покорим вместе.
-			+e.arrow
-				+e.arrow-wrapper.js-scroll-link(href="#section1" data-target="section1")
-					+e.arrow-text(data-i18n="intro.more") Больше интересного
-					+e.arrow-icon
-						+svg("arrow")
+			+e.wrapper
+				+e.IMG.bg(src=`${baseDir}assets/images/home/bg.jpg` alt="")
+				+e.content
+					+e.title(data-aos="fade-up" data-i18n="intro.title") Добро пожаловать
+					+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext") Мы&nbsp;рады, что вы&nbsp;среди тех, кто первым познакомился с&nbsp;нашим лимитированным выпуском. Это ваш шаг к&nbsp;качеству и&nbsp;результатам, а&nbsp;мы&nbsp;гордимся быть частью этого пути. Впереди&nbsp;&mdash; новые достижения, которые мы&nbsp;покорим вместе.
+				+b.home-tab
+					+e.wrapper
+						+e.content
+							+e.IMG.icon(src=`${baseDir}assets/images/icons/search.svg` alt="")
+							+e.text Выберите доступную вакансию...
+						+e.arrow
+							+svg("arrow")
+					+b.home-tab-menu
+						+e.item
+							+e.text Повар
+							+e.arrow
+								+svg("arrow")
+						+e.item
+							+e.text Официант
+							+e.arrow
+								+svg("arrow")
+						+e.item
+							+e.text Уборщик
+							+e.arrow
+								+svg("arrow")
 
 
 		+b.home-about#section2
-			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-3.png` alt="")
 			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="about.title") О бренде
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="about.desc_1") BEFIT NUTRITION&nbsp;&mdash; это не&nbsp;просто продукты, это ваш союзник на&nbsp;пути к&nbsp;новым достижениям. Мы&nbsp;верим, что #[span.is-green каждый заслуживает лучшего, поэтому] создаём продукцию с&nbsp;бескомпромиссными стандартами качества. Наша миссия&nbsp;&mdash; помочь вам превзойти собственные ожидания и&nbsp;достичь целей.
-				+e.subtitle.subtitle(data-aos="fade-up" data-aos-delay="300" data-i18n="about.desc_2") BEFIT NUTRITION&nbsp;&mdash; выбор тех, кто не&nbsp;приемлет компромиссов и&nbsp;стремится к&nbsp;большему. Мы&nbsp;поддержим вас на&nbsp;каждом этапе этого пути.
+				+e.title(data-aos="fade-up" data-i18n="about.title") О НАС
+				+e.desc(data-aos="fade-up" data-aos-delay="150" data-i18n="about.desc_1") Мы&nbsp;лучшие в&nbsp;своем деле и&nbsp;каждый день становимся еще лучше, чтобы дарить вам вкус и&nbsp;качество, которым можно доверять.
+
 		+b.home-goal
 			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-4.png` alt="")
 			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="goal.title") движении к&nbsp;цели
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="goal.desc") #[span.is-green Мы&nbsp;создали линейку продуктов, чтобы поддерживать вас] на&nbsp;пути к&nbsp;новым достижениям. Каждый продукт BEFIT NUTRITION разработан для вашего максимального результата&nbsp;&mdash; будь&nbsp;то энергия, здоровье или восстановление.
+				+e.title(data-aos="fade-up" data-i18n="goal.title") движении к&nbsp;цели
+				+e.desc(data-aos="fade-up" data-aos-delay="150" data-i18n="goal.desc") #[span.is-green Мы&nbsp;создали линейку продуктов, чтобы поддерживать вас] на&nbsp;пути к&nbsp;новым достижениям. Каждый продукт BEFIT NUTRITION разработан для вашего максимального результата&nbsp;&mdash; будь&nbsp;то энергия, здоровье или восстановление.
 
 		+b.home-vitamins#section3
 			+e.content
