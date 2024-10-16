@@ -56,93 +56,51 @@ block content
 
 		+b.home-about#section2
 			+e.content
-				+e.title(data-aos="fade-up" data-i18n="about.title") О НАС
-				+e.desc(data-aos="fade-up" data-aos-delay="150" data-i18n="about.desc_1") Мы&nbsp;лучшие в&nbsp;своем деле и&nbsp;каждый день становимся еще лучше, чтобы дарить вам вкус и&nbsp;качество, которым можно доверять.
+				+e.title.title(data-aos="fade-up" data-i18n="about.title") О НАС
+				+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150" data-i18n="about.desc_1") Мы&nbsp;лучшие в&nbsp;своем деле и&nbsp;каждый день становимся еще лучше, чтобы дарить вам вкус и&nbsp;качество, которым можно доверять.
 
 		+b.home-goal
-			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-4.png` alt="")
 			+e.content
-				+e.title(data-aos="fade-up" data-i18n="goal.title") движении к&nbsp;цели
-				+e.desc(data-aos="fade-up" data-aos-delay="150" data-i18n="goal.desc") #[span.is-green Мы&nbsp;создали линейку продуктов, чтобы поддерживать вас] на&nbsp;пути к&nbsp;новым достижениям. Каждый продукт BEFIT NUTRITION разработан для вашего максимального результата&nbsp;&mdash; будь&nbsp;то энергия, здоровье или восстановление.
+				+e.item
+					+e.number 15
+					+e.name филиалов
+					+e.desc Быстро растущий бизнес 15&nbsp;новых точек за&nbsp;год
+				+e.item
+					+e.number 200
+					+e.name хот-догов
+					+e.desc Ежедневно мы&nbsp;продаем 1000 хот-догов
+				+e.item
+					+e.number 50
+					+e.name сотрудников
+					+e.desc 50&nbsp;довольных сотрудников за&nbsp;год
 
-		+b.home-vitamins#section3
+		+b.home-bonus#section3
 			+e.content
-				+e.title.title.for-desktop(data-aos="fade-up" data-i18n="vitamins.title_desk") Мультивитамины
-				+e.title.title.for-devices(data-aos="fade-up" data-i18n="vitamins.title_mobile") Мульти - #[br] витамины
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="vitamins.subtext") Комплекс витаминов для мужчин и&nbsp;женщин, поддерживающий здоровье и&nbsp;энергию на&nbsp;протяжении дня. Разработаны для тех, кто стремится быть в&nbsp;лучшей форме каждый день.
-			+e.slider.js-slider-products(data-aos="fade-up" data-aos-delay="300")
+				+e.title.title(data-aos="fade-up") ПЛЮСЫ РАБОТЫ
+				+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Мы&nbsp;предлагаем отличные условия работы, карьерный рост и&nbsp;поддержку, помогая вам достигать своих целей.
+			+e.slider.js-slider-bonus(data-aos="fade-up" data-aos-delay="300")
 				.swiper-wrapper
-					+e.item.swiper-slide
-						+product({
-							id: 1,
-							title: 'Multi Vitamin <br> for men',
-							img: 'vitamins/1.png'
-						}).product--vitamins
-					+e.item.swiper-slide
-						+product({
-							id: 2,
-							title: 'Multi Vitamin <br> for women',
-							img: 'vitamins/2.png'
-						}).product--vitamins
+					each item in data.bonus
+						+e.item.swiper-slide
+							+bonus(item)
 
-		+b.home-bars
-			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-3.png` alt="")
+		+b.home-faq
+			+e.wrapper
+				+e.left
+					+e.content
+						+e.title.title(data-aos="fade-up") ОТВЕТЫ НА&nbsp;ВОПРОСЫ
+						+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Мы&nbsp;лучшие в&nbsp;своем деле и&nbsp;каждый день становимся лучше, чтобы радовать вас вкусом и&nbsp;качеством, которому можно доверять.
+						+e.IMG.man(src=`${baseDir}assets/images/icons/man.svg` alt="")
+						+e.IMG.dialog--1(src=`${baseDir}assets/images/icons/dialog-1.svg` alt="")
+						+e.IMG.dialog--2(src=`${baseDir}assets/images/icons/dialog-2.svg` alt="")
+				+e.right
 			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="bars.title") Протеиновые #[br] батончики
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="bars.subtext") Быстрый и&nbsp;питательный перекус для тех, кто всегда в&nbsp;движении. Батончики поддерживают вашу энергию и&nbsp;физическую форму, удивляя насыщенным вкусом. Идеальный выбор для тех, кто ценит пользу и&nbsp;удовольствие.
-			+e.slider.js-slider-products(data-aos="fade-up" data-aos-delay="300")
-				.swiper-wrapper
-					+e.item.swiper-slide
-						+product({
-							id: 3,
-							title: 'COFFEE <br> LATTE',
-							img: 'bars/1.png'
-						}).product--bars
-					+e.item.swiper-slide
-						+product({
-							id: 4,
-							title: 'STRAWBERRY, <br> CREAM VANILLA & HAZELNUT',
-							img: 'bars/2.png'
-						}).product--bars
-					+e.item.swiper-slide
-						+product({
-							id: 5,
-							title: 'MANGO <br>& CASHEW',
-							img: 'bars/3.png'
-						}).product--bars
-					+e.item.swiper-slide
-						+product({
-							id: 6,
-							title: 'COCONUT, <br> CREAM & ALMOND',
-							img: 'bars/4.png'
-						}).product--bars
-					+e.item.swiper-slide
-						+product({
-							id: 7,
-							title: 'WILD <br> BERRIES',
-							img: 'bars/5.png'
-						}).product--bars
-
-		+b.home-promocode#section4
-			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="promocode.title") ПРОМОКОД
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="promocode.subtext") Используйте промокод и&nbsp; #[span.is-green получите&nbsp;10% скидку] на&nbsp;первый заказ в&nbsp;наших филиалах, или через наш колл-центр.
-				+e.btn.js-copy-code(data-aos="fade-up" data-aos-delay="300")
-					+e.btn-content
-						+e.btn-icon
-							+svg("copy")
-						+e.btn-text.js-copy-value BEFIT2024
-					+e.btn-blur
-						- for (let i = 1; i <= 16; i++)
-							+e.btn-blur-item
-
-				+e.text(data-aos="fade-up" data-aos-delay="450" data-i18n="promocode.date") Время ограничено&nbsp;&mdash; #[span.is-green успейте до&nbsp;24.10.24] и&nbsp;начните свой путь к&nbsp;результату.
 
 		+b.home-form
 			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-5.png` alt="")
 			+e.content
 				+e.title.title(data-aos="fade-up" data-i18n="form.title") Узнайте #[br] первыми
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="form.subtext") Присоединяйтесь к&nbsp;сообществу тех, кто выбирает лучшее. Оставьте свои контакты, и&nbsp;мы&nbsp;будем держать вас в&nbsp;курсе новинок и&nbsp;эксклюзивных предложений BEFIT NUTRITION.
+				+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150" data-i18n="form.subtext") Присоединяйтесь к&nbsp;сообществу тех, кто выбирает лучшее. Оставьте свои контакты, и&nbsp;мы&nbsp;будем держать вас в&nbsp;курсе новинок и&nbsp;эксклюзивных предложений BEFIT NUTRITION.
 			+e.FORM.form(action="" name="mailForm" data-aos="fade-up" data-aos-delay="300")
 				+e.form-row
 					+e.INPUT.input.js-input(type="text" name="name" id="name" placeholder="Ваше имя")

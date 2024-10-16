@@ -153,54 +153,17 @@ iframe {
 }
 
 .title {
-	font-weight: 700;
-	font-size: vc(60);
-	line-height: vc(60);
-	text-align: center;
-	text-transform: uppercase;
-	background: linear-gradient(89.99deg, #33363D -16.37%, rgba(255, 255, 255, 0.9) 49.33%, #414141 95.21%, #33363D 102.75%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	text-fill-color: transparent;
-	margin-bottom: vc(12);
-
-	@include devices {
-		font-size: vc(50);
-		line-height: vc(50);
-	}
-}
-
-.subtext {
-	font-weight: 300;
+	font-weight: 600;
 	font-size: vc(16);
-	line-height: 130%;
-	text-align: center;
-	opacity: 0.9;
-	width: vc(629);
-	color: #E7E7E7;
-
-	@include devices {
-		width: 100%;
-	}
+	line-height: vc(20);
+	color: #1F2021;
+	opacity: 0.5;
 }
 
 .subtitle {
-	width: vc(629);
-	font-weight: 700;
-	font-size: vc(16);
-	line-height: 130%;
-	text-align: center;
-	background: linear-gradient(90deg, #1D1D1D 0%, #CDCDCD 47%, #1D1D1D 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	text-fill-color: transparent;
-	opacity: 0.9;
-
-	@include devices {
-		width: 100%;
-	}
+	font-size: vc(24);
+	line-height: vc(30);
+	color: #1F2021;
 }
 
 .simplebar-scrollbar:before {

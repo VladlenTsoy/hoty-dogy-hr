@@ -3,39 +3,6 @@ import {isDevices} from "../../scripts/helpers";
 
 let swiperList = [];
 
-function initScrollRoll() {
-	const $scrollRoll = document.querySelectorAll('.scrollRoll');
-
-	$scrollRoll.forEach(el => {
-		const scrollContent = el.querySelector('.scrollRoll__content');
-
-		const duration = el.dataset.duration;
-
-		scrollContent.innerHTML += scrollContent.innerHTML;
-
-		// Добавляем задержку, чтобы дождаться полной отрисовки
-		setTimeout(() => {
-			const totalWidth = scrollContent.scrollWidth / 2;
-
-			gsap.to(scrollContent, {
-				x: -totalWidth,
-				duration,
-				ease: "none",
-				repeat: -1,
-			});
-		}, 100);
-	})
-}
-
-function copyText() {
-	const btn = document.querySelector('.js-copy-code');
-	const copyText = document.querySelector('.js-copy-value').innerText;
-
-	btn.addEventListener('click', function () {
-		navigator.clipboard.writeText(copyText);
-	});
-}
-
 const initSimpleBar = () => {
 	const $content = document.querySelectorAll('.js-custom-scrollbar');
 
@@ -62,20 +29,16 @@ const initSlider = () => {
 	});
 
 
-	if (isDevices()) {
-		const $slidersMobile = document.querySelectorAll('.js-slider-products');
+	const $slidersBonus = document.querySelectorAll('.js-slider-bonus');
 
-		// console.log('$slidersMobile', $slidersMobile);
-
-		$slidersMobile.forEach(el => {
-			let popupProductsSwiper = new Swiper(el, {
-				slidesPerView: 1,
-				spaceBetween: 16
-			});
-
-			swiperList.push(popupProductsSwiper);
+	$slidersBonus.forEach(el => {
+		let popupBonusSwiper = new Swiper(el, {
+			slidesPerView: 3,
+			spaceBetween: 20
 		});
-	}
+
+		swiperList.push(popupBonusSwiper);
+	});
 }
 
 function maskPhone () {
@@ -220,8 +183,6 @@ function anchorLinks() {
 function init(container) {
 	// console.log('home init');
 
-	initScrollRoll();
-	copyText();
 	anchorLinks();
 	initTabs();
 	initSimpleBar();
