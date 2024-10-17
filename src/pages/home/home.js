@@ -11,6 +11,48 @@ const initSimpleBar = () => {
 	})
 }
 
+const initAccordion = () => {
+	const togglers = document.querySelectorAll('[data-toggle]');
+
+	// Открыть первый таб по умолчанию
+	if (togglers.length > 0) {
+		const firstToggler = togglers[0]; // Первый элемент
+		const firstSelector = firstToggler.dataset.toggle;
+		const firstBlock = document.querySelector(`${firstSelector}`);
+
+		firstToggler.classList.add('active');
+		firstBlock.style.maxHeight = firstBlock.scrollHeight + 'px';
+	}
+
+	togglers.forEach((btn) => {
+		btn.addEventListener('click', (e) => {
+			const selector = e.currentTarget.dataset.toggle;
+			const block = document.querySelector(`${selector}`);
+
+			// Закрыть все открытые аккордеоны, кроме текущего
+			togglers.forEach((otherBtn) => {
+				const otherSelector = otherBtn.dataset.toggle;
+				const otherBlock = document.querySelector(`${otherSelector}`);
+
+				if (otherBtn !== btn) {
+					otherBtn.classList.remove('active');
+					otherBlock.style.maxHeight = '';
+				}
+			});
+
+			// Открыть или закрыть текущий аккордеон
+			if (e.currentTarget.classList.contains('active')) {
+				block.style.maxHeight = '';
+			} else {
+				block.style.maxHeight = block.scrollHeight + 'px';
+			}
+
+			e.currentTarget.classList.toggle('active');
+		});
+	});
+}
+
+
 const initSlider = () => {
 	const $sliders = document.querySelectorAll('.js-slider');
 
@@ -184,9 +226,11 @@ function init(container) {
 	// console.log('home init');
 
 	anchorLinks();
-	initTabs();
+	initAccordion();
 	initSimpleBar();
 	initSlider();
+
+	initTabs();
 	maskPhone();
 	formValidation();
 }

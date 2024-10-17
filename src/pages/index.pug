@@ -94,7 +94,35 @@ block content
 						+e.IMG.dialog--1(src=`${baseDir}assets/images/icons/dialog-1.svg` alt="")
 						+e.IMG.dialog--2(src=`${baseDir}assets/images/icons/dialog-2.svg` alt="")
 				+e.right
-			+e.content
+					.accordion
+						.accordion__item
+							.accordion__header(data-toggle='#faq1')
+								p Какова ваша миссия?
+								.accordion__icon
+									+svg("arrow")
+							#faq1.accordion__content
+								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
+						.accordion__item
+							.accordion__header(data-toggle='#faq2')
+								p Почему выбирают вас?
+								.accordion__icon
+									+svg("arrow")
+							#faq2.accordion__content
+								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
+						.accordion__item
+							.accordion__header(data-toggle='#faq3')
+								p Как можно стать частью вашей команды?
+								.accordion__icon
+									+svg("arrow")
+							#faq3.accordion__content
+								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
+						.accordion__item
+							.accordion__header(data-toggle='#faq4')
+								p Какие у вас стандарты качества?
+								.accordion__icon
+									+svg("arrow")
+							#faq4.accordion__content
+								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
 
 		+b.home-form
 			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-5.png` alt="")

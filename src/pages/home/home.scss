@@ -296,14 +296,17 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: vc(100) 0;
+	padding: vc(100) 0 0;
 	margin: vc(4) 0;
 	background: #171008;
 	min-height: vc(641);
 	border-radius: vc(30);
 
 	&__wrapper {
+		position: relative;
 		display: flex;
+		height: 100%;
+		flex: 1 1 auto;
 		justify-content: space-between;
 		width: vc(1128);
 	}
@@ -314,14 +317,14 @@
 		&--1 {
 			width: vc(130);
 			bottom: vc(287);
-			left: vc(319);
+			left: vc(244);
 		}
 
 		&--2 {
 			z-index: 2;
 			width: vc(225);
 			bottom: vc(213);
-			left: vc(357);
+			left: vc(282);
 		}
 	}
 
@@ -350,7 +353,7 @@
 
 	&__man {
 		position: absolute;
-		left: vc(75);
+		left: 0;
 		bottom: vc(-1);
 		width: vc(259);
 	}
