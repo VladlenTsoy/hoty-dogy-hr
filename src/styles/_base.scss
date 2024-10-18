@@ -196,9 +196,14 @@ iframe {
 }
 
 .js-phone-mask-fake.error ~ .js-phone-mask {
-	border: 1px solid #771C1C;
+	color: #FF0000;
+	border: 1px solid #FEA19B;
 }
 
 .is-hidden {
 	display: none;
+}
+
+div.error {
+	display: none !important;
 }

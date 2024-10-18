@@ -32,7 +32,7 @@ block content
 				+e.content
 					+e.title(data-aos="fade-up" data-i18n="intro.title") Добро пожаловать
 					+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext") Мы&nbsp;рады, что вы&nbsp;среди тех, кто первым познакомился с&nbsp;нашим лимитированным выпуском. Это ваш шаг к&nbsp;качеству и&nbsp;результатам, а&nbsp;мы&nbsp;гордимся быть частью этого пути. Впереди&nbsp;&mdash; новые достижения, которые мы&nbsp;покорим вместе.
-				+b.home-tab
+				+b.home-tab.js-tab-intro.is-open-tab
 					+e.wrapper
 						+e.content
 							+e.IMG.icon(src=`${baseDir}assets/images/icons/search.svg` alt="")
@@ -124,27 +124,104 @@ block content
 							#faq4.accordion__content
 								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
 
-		+b.home-form
-			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-5.png` alt="")
-			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="form.title") Узнайте #[br] первыми
-				+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150" data-i18n="form.subtext") Присоединяйтесь к&nbsp;сообществу тех, кто выбирает лучшее. Оставьте свои контакты, и&nbsp;мы&nbsp;будем держать вас в&nbsp;курсе новинок и&nbsp;эксклюзивных предложений BEFIT NUTRITION.
-			+e.FORM.form(action="" name="mailForm" data-aos="fade-up" data-aos-delay="300")
-				+e.form-row
-					+e.INPUT.input.js-input(type="text" name="name" id="name" placeholder="Ваше имя")
-					+e.INPUT.input-hide.required.js-phone-mask-fake(type="text" name="phone")
-					+e.INPUT.input.js-phone-mask(placeholder="+998 ( __ ) ___ - __ - __")
-				+e.BUTTON.btn(data-i18n="form.btn") Оставить контакты
 
-		+b.home-contacts#section5
-			+e.IMG.bg-1.for-devices(src=`${baseDir}assets/images/home/circle-6.png` alt="")
-			+e.title.title(data-aos="fade-up" data-i18n="contacts") МЫ ЗДЕСЬ
-			+e.content(data-aos="fade-up" data-aos-delay="150")
-				+e.A.btn(href="https://instagram.com/befitnutrition.uz" target="_blank")
-					+e.IMG.btn-border.for-devices(src=`${baseDir}assets/images/icons/border-mobile.svg` alt="")
-					+e.IMG.btn-border.for-desktop(src=`${baseDir}assets/images/icons/border.svg` alt="")
-					span Instagram
-				+e.A.btn(href="tel:+998555180770" target="_blank")
-					+e.IMG.btn-border.for-devices(src=`${baseDir}assets/images/icons/border-mobile.svg` alt="")
-					+e.IMG.btn-border.for-desktop(src=`${baseDir}assets/images/icons/border.svg` alt="")
-					span +998 (55) 518 - 07 - 70
+		+b.home-vacancy
+			+e.wrapper
+				+e.title.title(data-aos="fade-up") ВАКАНСИИ
+				+e.content
+					+e.list
+						+b.vacancy
+							+e.top
+								+e.left
+									+e.icon-default
+										+svg("job-0")
+									+e.icon-job
+										+svg("job-1")
+								+e.right
+									+e.date 6 октября #[br] 2024 года
+							+e.content
+								+e.title Повар
+								+e.salary 6.000.000 сум
+								+e.desc Полный рабочий день, #[br] сменный график
+						+b.vacancy
+							+e.top
+								+e.left
+									+e.icon-default
+										+svg("job-0")
+									+e.icon-job
+										+svg("job-2")
+								+e.right
+									+e.date 6 октября #[br] 2024 года
+							+e.content
+								+e.title Официант
+								+e.salary 2.500.000 сум
+								+e.desc Полный рабочий день, #[br] сменный график
+						+b.vacancy
+							+e.top
+								+e.left
+									+e.icon-default
+										+svg("job-0")
+									+e.icon-job
+										+svg("job-3")
+								+e.right
+									+e.date 6 октября #[br] 2024 года
+							+e.content
+								+e.title Уборщик
+								+e.salary 1.800.000 сум
+								+e.desc Полный рабочий день, #[br] сменный график
+						+b.vacancy--info
+							+e.info
+								+e.info-bold Вы посмотрели #[br] все вакансии
+								+e.info-text На&nbsp;данный момент #[br] больше вакансий нет
+
+
+		+b.home-form
+			+e.wrapper
+				+e.left
+					+e.content
+						+e.title.title(data-aos="fade-up") АНКЕТА
+						+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Заполните анкету или свяжитесь с&nbsp;нами, чтобы узнать больше о&nbsp;доступных вакансиях.
+				+e.right
+					+e.FORM.form(action="" name="mailForm" data-aos="fade-up" data-aos-delay="300")
+						+e.form-row
+							+e.INPUT.input.js-input(type="text" name="name" id="name" placeholder="Ваше имя")
+							+e.INPUT.input-hide.required.js-phone-mask-fake(type="text" name="phone")
+							+e.INPUT.input.js-phone-mask(placeholder="+998 ( __ ) ___ - __ - __")
+						+e.form-row
+							+e.INPUT.input(type="text" name="email" id="email" placeholder="Почта")
+							+e.INPUT.input(type="text" name="tg" id="tg" placeholder="@телеграм")
+
+						.select-menu
+							.select-btn
+								input.sBtn-text(type="text" name="job" id="job" placeholder="Выберите должность")
+								.select-btn__icon
+									+svg("arrow")
+							ul.options
+								li.option
+									span.option-text Повар
+								li.option
+									span.option-text Официант
+								li.option
+									span.option-text Уборщик
+
+						+e.INPUT.input--long(type="text" name="comment" id="comment" placeholder="Комментарий к CV...")
+
+						+e.file.js-file-upload
+							label
+								input(type="file" name="file" id="file")
+								+e.file-icon
+									+svg("file")
+								+e.file-content
+									+e.file-info максимальный вес - 15 MB
+									+e.file-name.js-file-name
+										+e.file-name-default Прикрепить файл CV
+										+e.file-name-value#filename
+
+						+e.BUTTON.btn
+							+e.btn-icon--1
+								+svg("btn-icon")
+							+e.btn-text Отправить анкету
+							+e.btn-icon--2
+								+svg("btn-icon")
+
+		include @components/footer/footer

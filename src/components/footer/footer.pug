@@ -1,2 +1,17 @@
-footer.footer
-	h2 footer
++b.FOOTER.footer
+	+e.wrapper
+		+e.left
+			+e.IMG.logo(src=`${baseDir}assets/images/icons/logo-white.png` alt="")
+		+e.menu.for-desktop
+			+e.list
+				+e.A.link.js-scroll-link(href="#section1" data-target="section1" data-i18n="menu.link_1") О нас
+				+e.A.link.js-scroll-link(href="#section2" data-target="section2" data-i18n="menu.link_2") Вакансии
+				+e.A.link.js-scroll-link(href="#section3" data-target="section3" data-i18n="menu.link_3") Плюсы работы
+				+e.A.link.js-scroll-link(href="#section4" data-target="section4" data-i18n="menu.link_4") Ответы на вопросы
+		+e.right
+			+e.social
+				+e.social-item
+					+svg("inst")
+				+e.social-item
+					+svg("tg")
+

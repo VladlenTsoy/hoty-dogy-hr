@@ -17,6 +17,7 @@
 	padding: vc(11) vc(12);
 	box-shadow: 0 vc(3) vc(8) rgba(180, 180, 180, 0.25);
 	transform: translateY(50%);
+	cursor: pointer;
 
 	&__icon {
 		width: vc(50);
@@ -26,6 +27,12 @@
 	&__arrow {
 		width: vc(24);
 		height: vc(24);
+		transform: rotate(-90deg);
+		transition: transform 0.3s ease-in-out;
+
+		.is-open-tab & {
+			transform: rotate(0deg);
+		}
 	}
 
 	&__content {
@@ -58,7 +65,14 @@
 	box-shadow: 0 vc(3) vc(8) rgba(180, 180, 180, 0.25);
 	border-radius: vc(24);
 	padding: vc(24);
-	transform: translateY(100%);
+	opacity: 0;
+	transform: translateY(80%);
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+	.is-open-tab & {
+		opacity: 1;
+		transform: translateY(100%);
+	}
 
 	&__item {
 		display: flex;
@@ -359,6 +373,220 @@
 	}
 }
 
+.home-vacancy {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: vc(100) 0;
+	margin: vc(4) 0;
+	background: $color-white;
+	border-radius: vc(30);
+
+	&__wrapper {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: vc(1128);
+	}
+
+	&__list {
+		display: flex;
+		gap: vc(12);
+	}
+
+	&__title {
+		margin-bottom: vc(24);
+	}
+}
+
+.home-form {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: vc(100) 0;
+	margin: 0 0 vc(4);
+	background: $color-white;
+	border-radius: vc(30);
+	color: #232324;
+
+	&__wrapper {
+		position: relative;
+		display: flex;
+		height: 100%;
+		flex: 1 1 auto;
+		justify-content: space-between;
+		width: vc(1128);
+	}
+
+	&__left {
+		width: vc(552);
+	}
+
+	&__right {
+		margin-top: vc(43);
+		width: vc(552);
+	}
+
+	&__title {
+		margin-bottom: vc(23);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		&-row {
+		  	position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: vc(8);
+			margin-bottom: vc(12);
+		}
+	}
+
+	&__file {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: vc(70);
+		margin-top: vc(30);
+
+		label {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			padding: vc(16) vc(24);
+			border-radius: vc(16);
+			background: #FDF7EE;
+
+			input[type="file"] {
+				display: none;
+			}
+		}
+
+		&-icon {
+			width: vc(26);
+			height: vc(26);
+			margin-right: vc(12);
+		}
+
+		&-content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			width: 100%;
+		}
+
+		&-info {
+			font-size: vc(11);
+			line-height: vc(14);
+			color: #898072;
+			margin-bottom: vc(3);
+		}
+
+		&-name {
+			position: relative;
+			display: flex;
+			align-items: center;
+			font-size: vc(16);
+			line-height: vc(20);
+			color: #232324;
+			width: 100%;
+
+			&-default {
+				.is-has-file & {
+					opacity: 0;
+				}
+			}
+
+			&-value {
+				position: absolute;
+				opacity: 0;
+
+				.is-has-file & {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__input {
+		display: flex;
+		align-items: center;
+		width: vc(272);
+		height: vc(68);
+		border-radius: vc(16);
+		padding: vc(24);
+		background: #FDF7EE;
+		font-size: vc(16);
+		line-height: vc(20);
+		color: #232324;
+
+		&--long {
+			width: 100%;
+			margin-top: vc(18);
+		}
+
+		&.error {
+			color: #FF0000;
+			border: 1px solid #FEA19B;
+		}
+
+		@include devices {
+			width: 100%;
+			padding: vc(19);
+			margin: 0 0 vc(8);
+		}
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: vc(262);
+		height: vc(68);
+		border-radius: vc(16);
+		background: rgba($color-orange, 0.5);
+		margin-top: vc(30);
+		transition: background 0.3s ease-in-out;
+		cursor: pointer;
+
+		@include desktop {
+			&:hover {
+				background: $color-orange;
+			}
+		}
+
+		&-icon {
+			width: vc(10);
+			height: vc(10);
+
+			&--2 {
+				transform: rotate(60deg);
+			}
+		}
+
+		&-text {
+			font-weight: 600;
+			font-size: vc(16);
+			line-height: vc(20);
+			color: $color-white;
+			margin: 0 vc(10) vc(2);
+		}
+	}
+}
+
 .home-contacts {
 	display: flex;
 	flex-direction: column;
@@ -424,126 +652,5 @@
 	@include devices {
 		margin-top: vc(195);
 		padding-bottom: vc(50);
-	}
-}
-
-.home-form {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: vc(164) 0 0;
-
-	&__bg-1 {
-		position: absolute;
-		bottom: vc(50);
-		left: 0;
-		width: vc(400);
-		pointer-events: none;
-	}
-
-	&__title {
-		@include devices {
-			font-size: vc(45);
-		}
-	}
-
-	&__desc {
-		width: vc(593);
-
-		@include devices {
-			width: 100%;
-		}
-	}
-
-	&__content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: vc(849);
-
-		@include devices {
-			width: 100%;
-			padding: 0 vc(16);
-		}
-	}
-
-	&__form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		&-row {
-		  	position: relative;
-			display: flex;
-			align-items: center;
-			margin: vc(40) 0;
-
-			@include devices {
-				width: 100%;
-				flex-direction: column;
-				align-items: flex-start;
-				margin: vc(40) 0 vc(32);
-			}
-		}
-
-		@include devices {
-			width: 100%;
-			padding: 0 vc(16);
-		}
-	}
-
-	&__input {
-		display: flex;
-		align-items: center;
-		width: vc(272);
-		height: vc(66);
-		border-radius: vc(16);
-		padding: vc(24);
-		margin: 0 vc(4);
-		background: #252525;
-		font-weight: 300;
-		font-size: vc(16);
-		line-height: 110%;
-		border: 1px solid transparent;
-
-		&.error {
-			border: 1px solid #771C1C;
-		}
-
-		@include devices {
-			width: 100%;
-			padding: vc(19);
-			margin: 0 0 vc(8);
-		}
-	}
-
-	&__btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: vc(262);
-		height: vc(68);
-		padding: vc(24);
-		border-radius: vc(55);
-		font-family: $font-mulish;
-		font-weight: 600;
-		font-size: vc(16);
-		line-height: vc(20);
-		color: #0D0D0D;
-		// background: $color-green;
-		opacity: 0.5;
-		transition: opacity 0.4s ease-in-out;
-		cursor: pointer;
-
-		@include desktop {
-			&:hover {
-				opacity: 1;
-			}
-		}
-	}
-
-	@include devices {
-		padding: vc(87) 0 0;
 	}
 }

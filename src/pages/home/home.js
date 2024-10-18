@@ -52,6 +52,46 @@ const initAccordion = () => {
 	});
 }
 
+const initTabIntro = () => {
+	const tab = document.querySelector('.js-tab-intro');
+
+	tab.addEventListener('click', function () {
+		tab.classList.toggle('is-open-tab');
+	})
+}
+
+const initSelectMenu = () => {
+	const optionMenu = document.querySelector(".select-menu"),
+		selectBtn = optionMenu.querySelector(".select-btn"),
+		options = optionMenu.querySelectorAll(".option"),
+		sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+	selectBtn.addEventListener("click", () =>
+		optionMenu.classList.toggle("active")
+	);
+
+	options.forEach((option) => {
+		option.addEventListener("click", () => {
+			let selectedOption = option.querySelector(".option-text").innerText;
+			sBtn_text.value = selectedOption;
+
+			optionMenu.classList.remove("active");
+		});
+	});
+}
+
+const initFileUpload = () => {
+	$(".js-file-upload input[type=file]").change(function(){
+		var filename = $(this).val().replace(/.*\\/, "");
+
+		if (filename) {
+			$('.js-file-name').addClass('is-has-file')
+			$("#filename").text(filename);
+		} else {
+			$('.js-file-name').removeClass('is-has-file')
+		}
+	});
+}
 
 const initSlider = () => {
 	const $sliders = document.querySelectorAll('.js-slider');
@@ -124,6 +164,12 @@ const formValidation = () => {
 					param: 12,
 				},
 			},
+			job: 'required',
+			email: 'required',
+			file: {
+				required: true,
+				extension: "pdf|doc|docx",
+			},
 		},
 		messages: {
 			name: '',
@@ -131,11 +177,26 @@ const formValidation = () => {
 				required: '',
 				minlength: '',
 			},
+			job: '',
+			email: '',
+			file: {
+				required: 'Выберите файл',
+				extension: 'Разрешены только PDF, DOC, DOCX, JPG или PNG файлы',
+			},
 		},
 		invalidHandler: function(event, validator) {
 			// console.log("Invalid form submission");
 		},
 		submitHandler: function(form) {
+			let fileInput = $('input[name="file"]')[0];
+			let file = fileInput.files[0];
+
+			// Проверка размера файла (не более 15MB)
+			if (file && file.size > 15 * 1024 * 1024) {
+				alert("Размер файла не должен превышать 15MB");
+				return false;
+			}
+
 			console.log("Form submitted");
 
 			setTimeout(function () {
@@ -229,6 +290,9 @@ function init(container) {
 	initAccordion();
 	initSimpleBar();
 	initSlider();
+	initTabIntro();
+	initSelectMenu();
+	initFileUpload();
 
 	initTabs();
 	maskPhone();

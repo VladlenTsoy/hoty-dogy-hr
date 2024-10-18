@@ -1,0 +1,92 @@
+.footer {
+	position: relative;
+	z-index: 20;
+	display: flex;
+	justify-content: center;
+	margin-top: vc(4);
+	padding: vc(114) vc(76);
+	border-radius: vc(30);
+	background: #171008;
+
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+
+	&__logo {
+		display: block;
+		width: vc(160);
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+	}
+
+	&__menu {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: vc(4) auto 0;
+		width: vc(480);
+	}
+
+	&__right {
+		display: flex;
+		align-items: center;
+	}
+
+	&__link {
+		font-weight: 400;
+		font-size: vc(16);
+		line-height: 110%;
+		text-align: center;
+		color: $color-white;
+		margin-right: vc(30);
+		transition: color 0.35s ease-in-out;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@include desktop {
+			&:hover {
+				color: $color-orange;
+			}
+		}
+	}
+
+	&__social {
+		display: flex;
+		align-items: center;
+
+		&-item {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: vc(24);
+			border-radius: vc(16);
+			background: rgba($color-white, 0.1);
+			margin-right: vc(6);
+			transition: background 0.35s ease-in-out;
+			cursor: pointer;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			svg {
+				width: vc(24);
+				height: vc(24);
+			}
+
+			@include desktop {
+				&:hover {
+					background: $color-orange;
+				}
+			}
+		}
+	}
+}
