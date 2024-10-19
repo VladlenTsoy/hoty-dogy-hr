@@ -3,6 +3,9 @@ import {isDevices} from "../../scripts/helpers";
 
 let swiperList = [];
 
+const fileExtensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx'];
+const fileMaxSize = 15 * 1024 * 1024; // Максимальный размер файла 15MB
+
 const initSimpleBar = () => {
 	const $content = document.querySelectorAll('.js-custom-scrollbar');
 
@@ -76,6 +79,7 @@ const initSelectMenu = () => {
 			sBtn_text.value = selectedOption;
 
 			optionMenu.classList.remove("active");
+			$('.sBtn-text').removeClass('error');
 		});
 	});
 }
@@ -164,12 +168,13 @@ const formValidation = () => {
 					param: 12,
 				},
 			},
+			tg: 'required',
 			job: 'required',
-			email: 'required',
-			file: {
+			email: {
 				required: true,
-				extension: "pdf|doc|docx",
+				email: true
 			},
+			fileCheck: 'required'
 		},
 		messages: {
 			name: '',
@@ -177,26 +182,27 @@ const formValidation = () => {
 				required: '',
 				minlength: '',
 			},
+			tg: '',
 			job: '',
-			email: '',
-			file: {
-				required: 'Выберите файл',
-				extension: 'Разрешены только PDF, DOC, DOCX, JPG или PNG файлы',
+			email: {
+				required: '',
+				email: ''
 			},
+			fileCheck: ''
 		},
 		invalidHandler: function(event, validator) {
-			// console.log("Invalid form submission");
+			if (validator.errorList.length > 0) {
+				// Проверяем, есть ли ошибка в поле fileCheck
+				let fileCheckError = validator.errorList.some(function(error) {
+					return error.element.name === 'fileCheck';
+				});
+
+				if (fileCheckError) {
+					uploadFile();
+				}
+			}
 		},
 		submitHandler: function(form) {
-			let fileInput = $('input[name="file"]')[0];
-			let file = fileInput.files[0];
-
-			// Проверка размера файла (не более 15MB)
-			if (file && file.size > 15 * 1024 * 1024) {
-				alert("Размер файла не должен превышать 15MB");
-				return false;
-			}
-
 			console.log("Form submitted");
 
 			setTimeout(function () {
@@ -239,6 +245,57 @@ const sendPublication = () => {
 		},
 	});
 }
+
+const setEvents = () => {
+	const $inputFile = document.querySelector('#file');
+	$inputFile.addEventListener("change", uploadFile);
+}
+
+const loadingValidation = (hasError, type) => {
+	if (hasError) {
+		$('.js-file-upload').addClass('has-error');
+
+		if (type === 'format') {
+			console.log("i18n.t('form.file.error.format')", i18n.t('form.file.error.format'));
+			$('.js-file-upload p.error').text(i18n.t('form.file.error.format'));
+		} else if (type === 'size') {
+			$('.js-file-upload p.error').text(i18n.t('form.file.error.size'));
+		} else if (type === 'file') {
+			$('.js-file-upload p.error').text(i18n.t('form.file.error.file'));
+		}
+	} else {
+		$('.js-file-upload').removeClass('has-error');
+	}
+}
+
+const uploadFile = (e) => {
+	const inputTarget = document.getElementById('file');
+	const file = inputTarget.files[0];
+
+	if (!file) {
+		console.log('Загрузите файл CV');
+		loadingValidation(true, 'file');
+
+		return;
+	}
+
+	// Получаем расширение файла
+	const fileExtension = file.name.split('.').pop().toLowerCase();
+
+	// Проверяем, допустимо ли расширение файла
+	if (fileExtensions.indexOf(fileExtension) < 0) {
+		console.log('Проверяем, допустимо ли расширение файла');
+		loadingValidation(true, 'format');
+	}
+	// Проверяем, не превышает ли размер файла допустимый максимум
+	else if (file.size > fileMaxSize) {
+		console.log('Проверяем, не превышает ли размер файла допустимый максимум');
+		loadingValidation(true, 'size');
+	} else {
+		loadingValidation(false);
+	}
+}
+
 
 function initTabs() {
 	const listPopups = document.querySelectorAll('.popup');
@@ -293,6 +350,8 @@ function init(container) {
 	initTabIntro();
 	initSelectMenu();
 	initFileUpload();
+	setEvents();
+
 
 	initTabs();
 	maskPhone();

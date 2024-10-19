@@ -456,10 +456,38 @@
 
 	&__file {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		align-items: flex-start;
 		width: 100%;
 		height: vc(70);
 		margin-top: vc(30);
+
+		&.has-error {
+			margin-bottom: vc(20);
+
+			label {
+				border: 1px solid #FEA19B;
+			}
+
+			p.error {
+				opacity: 1;
+			}
+		}
+
+		p.error {
+			margin: vc(8) 0 0 vc(24);
+			font-size: vc(11);
+			line-height: vc(14);
+			color: #FF0000;
+			opacity: 0;
+		}
+
+		&-check {
+			width: 0;
+			height: 0;
+			opacity: 0;
+			pointer-events: none;
+		}
 
 		label {
 			display: flex;
@@ -469,6 +497,7 @@
 			padding: vc(16) vc(24);
 			border-radius: vc(16);
 			background: #FDF7EE;
+			border: 1px solid #FDF7EE;
 
 			input[type="file"] {
 				display: none;
@@ -527,6 +556,7 @@
 		width: vc(272);
 		height: vc(68);
 		border-radius: vc(16);
+		border: 1px solid #FDF7EE;
 		padding: vc(24);
 		background: #FDF7EE;
 		font-size: vc(16);
