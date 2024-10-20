@@ -215,7 +215,7 @@ const formValidation = () => {
 }
 
 const sendPublication = () => {
-	const API = 'https://befit-promo-api.vercel.app/send-application';
+	const API = '';
 
 	const name = $("input[name='name']").val();
 	const phone = $("input[name='phone']").val().replace(/\s+/g, '');

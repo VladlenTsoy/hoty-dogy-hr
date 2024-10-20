@@ -412,6 +412,38 @@
 	border-radius: vc(30);
 	color: #232324;
 
+	&__image {
+		position: relative;
+		margin-top: vc(110);
+		margin-left: vc(66);
+		width: vc(355);
+
+		&-man {
+			width: 100%;
+		}
+
+		&-star-1 {
+			position: absolute;
+			right: vc(80);
+			top: vc(1);
+			width: vc(30);
+		}
+
+		&-star-2 {
+			position: absolute;
+			left: vc(67);
+			top: vc(27);
+			width: vc(14);
+		}
+
+		&-star-3 {
+			position: absolute;
+			left: vc(56);
+			bottom: vc(105);
+			width: vc(35);
+		}
+	}
+
 	&__wrapper {
 		position: relative;
 		display: flex;

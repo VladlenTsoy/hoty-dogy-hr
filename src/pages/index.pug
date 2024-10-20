@@ -181,6 +181,11 @@ block content
 					+e.content
 						+e.title.title(data-aos="fade-up") АНКЕТА
 						+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Заполните анкету или свяжитесь с&nbsp;нами, чтобы узнать больше о&nbsp;доступных вакансиях.
+						+e.image
+							+e.IMG.image-man(src=`${baseDir}assets/images/icons/man-form.svg` alt="")
+							+e.IMG.image-star-1(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
+							+e.IMG.image-star-2(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
+							+e.IMG.image-star-3(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
 				+e.right
 					+e.FORM.form(action="" name="mailForm" data-aos="fade-up" data-aos-delay="300")
 						+e.form-row
