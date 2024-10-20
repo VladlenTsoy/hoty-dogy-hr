@@ -1,5 +1,6 @@
 import popup from '@components/popup/popup';
 import {isDevices} from "../../scripts/helpers";
+import {lockScroll} from '@scripts/helpers/lock-scroll';
 
 let swiperList = [];
 
@@ -93,6 +94,23 @@ const initFileUpload = () => {
 			$("#filename").text(filename);
 		} else {
 			$('.js-file-name').removeClass('is-has-file')
+		}
+	});
+}
+
+const initMenu = () => {
+	const burger = document.querySelector('.hamburger-container');
+	const menu = document.querySelector('.menu');
+
+	burger.addEventListener('click', function () {
+		if (burger.classList.contains('is-active')) {
+			burger.classList.remove('is-active');
+			menu.classList.remove('is-active');
+			lockScroll(false);
+		} else {
+			burger.classList.add('is-active');
+			menu.classList.add('is-active');
+			lockScroll(true);
 		}
 	});
 }
@@ -344,7 +362,7 @@ function init(container) {
 	initSelectMenu();
 	initFileUpload();
 	setEvents();
-
+	initMenu();
 
 	initTabs();
 	maskPhone();

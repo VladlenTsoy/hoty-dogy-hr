@@ -72,11 +72,14 @@
 	padding: vc(24);
 	opacity: 0;
 	transform: translateY(80%);
-	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
 	.is-open-tab & {
 		opacity: 1;
 		transform: translateY(100%);
+	}
+
+	.is-loaded & {
+		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 	}
 
 	&__item {
@@ -153,6 +156,7 @@
 		@include devices {
 			width: 100%;
 			margin-bottom: 0;
+			padding: 0 vc(20);
 		}
 	}
 
@@ -188,6 +192,7 @@
 	}
 
 	@include devices {
+		margin-top: vc(100);
 		height: vc(649);
 		padding: vc(12);
 	}

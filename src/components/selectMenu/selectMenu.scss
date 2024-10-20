@@ -45,7 +45,7 @@
 	color: #222222;
 	background: #FDF7EE;
 	transform: translateY(85%);
-	box-shadow: 0 vc(6) vc(8) #cccccc;
+	box-shadow: 0 vc(3) vc(8) rgba(180, 180, 180, 0.6);
 	opacity: 0;
 	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 	pointer-events: none;
