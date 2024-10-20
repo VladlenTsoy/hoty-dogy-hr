@@ -6,7 +6,7 @@
 	--width-multiplier: var(--width-current) / var(--width-base);
 
 	@include desktop-xl-min {
-		--width-base: #{$desktop-md};
+		--width-base: 1600;
 	}
 
 	@include desktop-xxl {

@@ -64,15 +64,15 @@ block content
 
 		+b.home-goal
 			+e.content
-				+e.item
+				+e.item(data-aos="fade-up")
 					+e.number 15
 					+e.name филиалов
 					+e.desc Быстро растущий бизнес 15&nbsp;новых точек за&nbsp;год
-				+e.item
+				+e.item(data-aos="fade-up")
 					+e.number 200
 					+e.name хот-догов
 					+e.desc Ежедневно мы&nbsp;продаем 1000 хот-догов
-				+e.item
+				+e.item(data-aos="fade-up")
 					+e.number 50
 					+e.name сотрудников
 					+e.desc 50&nbsp;довольных сотрудников за&nbsp;год
@@ -93,9 +93,9 @@ block content
 					+e.content
 						+e.title.title(data-aos="fade-up") ОТВЕТЫ НА&nbsp;ВОПРОСЫ
 						+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Мы&nbsp;лучшие в&nbsp;своем деле и&nbsp;каждый день становимся лучше, чтобы радовать вас вкусом и&nbsp;качеством, которому можно доверять.
-						+e.IMG.man(src=`${baseDir}assets/images/icons/man.svg` alt="")
-						+e.IMG.dialog--1(src=`${baseDir}assets/images/icons/dialog-1.svg` alt="")
-						+e.IMG.dialog--2(src=`${baseDir}assets/images/icons/dialog-2.svg` alt="")
+						+e.IMG.man(src=`${baseDir}assets/images/icons/man.svg` alt="" data-aos="fade-right" data-aos-delay="300")
+						+e.IMG.dialog--1(src=`${baseDir}assets/images/icons/dialog-1.svg` alt="" data-aos="zoom-in-up" data-aos-delay="450" data-aos-duration="1000")
+						+e.IMG.dialog--2(src=`${baseDir}assets/images/icons/dialog-2.svg` alt="" data-aos="zoom-in-up" data-aos-delay="450" data-aos-duration="1000")
 				+e.right
 					.accordion
 						.accordion__item
@@ -133,7 +133,7 @@ block content
 				+e.title.title(data-aos="fade-up") ВАКАНСИИ
 				+e.content
 					+e.list
-						+b.vacancy
+						+b.vacancy(data-aos="fade-up" data-aos-delay="150")
 							+e.top
 								+e.left
 									+e.icon-default
@@ -146,7 +146,7 @@ block content
 								+e.title Повар
 								+e.salary 6.000.000 сум
 								+e.desc Полный рабочий день, #[br] сменный график
-						+b.vacancy
+						+b.vacancy(data-aos="fade-up" data-aos-delay="150")
 							+e.top
 								+e.left
 									+e.icon-default
@@ -159,7 +159,7 @@ block content
 								+e.title Официант
 								+e.salary 2.500.000 сум
 								+e.desc Полный рабочий день, #[br] сменный график
-						+b.vacancy
+						+b.vacancy(data-aos="fade-up" data-aos-delay="150")
 							+e.top
 								+e.left
 									+e.icon-default
@@ -172,7 +172,7 @@ block content
 								+e.title Уборщик
 								+e.salary 1.800.000 сум
 								+e.desc Полный рабочий день, #[br] сменный график
-						+b.vacancy--info
+						+b.vacancy--info(data-aos="fade-up" data-aos-delay="150")
 							+e.info
 								+e.info-bold Вы посмотрели #[br] все вакансии
 								+e.info-text На&nbsp;данный момент #[br] больше вакансий нет
@@ -184,7 +184,7 @@ block content
 					+e.content
 						+e.title.title(data-aos="fade-up") АНКЕТА
 						+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Заполните анкету или свяжитесь с&nbsp;нами, чтобы узнать больше о&nbsp;доступных вакансиях.
-						+e.image.for-desktop
+						+e.image.for-desktop(data-aos="fade-up" data-aos-delay="300")
 							+e.IMG.image-man(src=`${baseDir}assets/images/icons/man-form.svg` alt="")
 							+e.IMG.image-star-1(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
 							+e.IMG.image-star-2(src=`${baseDir}assets/images/icons/form-star.svg` alt="")

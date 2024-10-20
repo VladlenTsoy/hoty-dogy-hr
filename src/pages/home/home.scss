@@ -552,6 +552,10 @@
 			right: vc(80);
 			top: vc(1);
 			width: vc(30);
+
+			@include desktop {
+				animation: moveUpDown 3.5s ease-in-out infinite;
+			}
 		}
 
 		&-star-2 {
@@ -559,6 +563,10 @@
 			left: vc(67);
 			top: vc(27);
 			width: vc(14);
+
+			@include desktop {
+				animation: moveDownUp 4.5s ease-in-out infinite;
+			}
 		}
 
 		&-star-3 {
@@ -566,6 +574,38 @@
 			left: vc(56);
 			bottom: vc(105);
 			width: vc(35);
+
+			@include desktop {
+				animation: moveDownUp 3s ease-in-out infinite;
+			}
+		}
+
+		@include desktop {
+			animation: moveUpDown 3s ease-in-out infinite;
+		}
+
+		@keyframes moveUpDown {
+			0% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(vc(-20));
+			}
+			100% {
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes moveDownUp {
+			0% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(vc(30));
+			}
+			100% {
+				transform: translateY(0);
+			}
 		}
 	}
 
