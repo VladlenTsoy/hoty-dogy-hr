@@ -1,8 +1,0 @@
-mixin product(props = {})
-	+b.product&attributes(attributes)
-		+e.content
-			+e.img-wrapper
-				+e.IMG.img-bg(src=`${baseDir}assets/images/home/product-bg.png` alt="")
-				+e.IMG.img-product(src=`${baseDir}assets/images/${props.img}` alt="")
-			+e.title!= props.title
-			+e.btn.js-popup-open(data-id=`product-${props.id}` data-i18n="vitamins.btn") Подроднее

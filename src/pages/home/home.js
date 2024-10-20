@@ -452,6 +452,10 @@ function initTabs() {
 
 function anchorLinks() {
 	const scrollLinks = document.querySelectorAll('.js-scroll-link');
+	const burger = document.querySelector('.hamburger-container');
+	const menu = document.querySelector('.menu');
+	const headerElement = document.querySelector('.header');
+	const offset = isDevices() ? headerElement.offsetHeight : 0;
 
 	scrollLinks.forEach(link => {
 		link.addEventListener('click', function(event) {
@@ -460,17 +464,27 @@ function anchorLinks() {
 			const targetId = this.getAttribute('data-target');
 			const targetElement = document.getElementById(targetId);
 
-			targetElement.scrollIntoView({
+			const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+			const offsetPosition = elementPosition - offset;
+
+			window.scrollTo({
+				top: offsetPosition,
 				behavior: 'smooth'
 			});
+
+			burger.classList.remove('is-active');
+			menu.classList.remove('is-active');
+			lockScroll(false);
 		});
 	});
 }
 
 function init(container) {
-	// console.log('home init');
 
-	anchorLinks();
+	setTimeout(function () {
+		anchorLinks();
+	}, 500)
+
 	initAccordion();
 	initSimpleBar();
 	initSlider();
@@ -479,8 +493,6 @@ function init(container) {
 	initFileUpload();
 	setEvents();
 	initMenu();
-
-	initTabs();
 	maskPhone();
 	formValidation();
 }
@@ -504,6 +516,10 @@ function resize() {
 	// console.log('home resize');
 
 	reset();
+
+	setTimeout(function () {
+		anchorLinks();
+	}, 500)
 
 	initSlider();
 }
