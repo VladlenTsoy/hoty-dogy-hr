@@ -1,0 +1,35 @@
++popup({id: `popup-form`}).popup-form
+	+b.popupForm
+		+e.content
+			+e.FORM.form(action="" name="popupForm" enctype="multipart/form-data" data-aos="fade-up" data-aos-delay="300")
+				+e.position
+					+e.position-job Повар
+					+e.position-salary 6.000.000 сум
+				+e.scroll.js-custom-scrollbar
+					+e.form-row
+						+e.INPUT.input.js-input(type="text" name="name" placeholder="Ваше имя")
+						+e.INPUT.input-hide.required.js-phone-mask-fake(type="text" name="phone")
+						+e.INPUT.input.js-phone-mask(placeholder="+998 ( __ ) ___ - __ - __")
+					+e.form-row
+						+e.INPUT.input(type="text" name="email" placeholder="Почта")
+						+e.INPUT.input(type="text" name="tg" placeholder="@телеграм")
+
+					+e.INPUT.input--long(type="text" name="comment" placeholder="Комментарий к CV...")
+
+					+e.file.js-file-upload
+						label
+							input(type="file" name="file" id="fileForm")
+							+e.file-icon
+								+svg("file")
+							+e.file-content
+								+e.file-info максимальный вес - 15 MB
+								+e.file-name.js-file-name
+									+e.file-name-default Прикрепить файл CV
+									+e.file-name-value#filename
+						p.error
+						+e.INPUT.file-check(type="text" name="fileCheck")
+				+e.btn-wrapper
+					+e.BUTTON.btn--back.popup__close
+						+e.btn-text Назад
+					+e.BUTTON.btn--send
+						+e.btn-text Отправить анкету

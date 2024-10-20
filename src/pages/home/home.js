@@ -86,15 +86,26 @@ const initSelectMenu = () => {
 }
 
 const initFileUpload = () => {
-	$(".js-file-upload input[type=file]").change(function(){
-		var filename = $(this).val().replace(/.*\\/, "");
+	document.querySelectorAll(".js-file-upload input[type='file']").forEach(input => {
+		input.addEventListener('change', function() {
+			// Получаем имя файла
+			const filename = this.value.split('\\').pop();
 
-		if (filename) {
-			$('.js-file-name').addClass('is-has-file')
-			$("#filename").text(filename);
-		} else {
-			$('.js-file-name').removeClass('is-has-file')
-		}
+			// Находим ближайший родитель с классом '.js-file-upload'
+			const fileUploadContainer = this.closest('.js-file-upload');
+
+			// Находим элемент с классом '.js-file-name' внутри родителя
+			const fileNameElement = fileUploadContainer.querySelector('.js-file-name');
+
+			if (filename) {
+				// Добавляем класс, если файл выбран
+				fileNameElement.classList.add('is-has-file');
+				fileUploadContainer.querySelector("#filename").textContent = filename;
+			} else {
+				// Убираем класс, если файл не выбран
+				fileNameElement.classList.remove('is-has-file');
+			}
+		});
 	});
 }
 
@@ -139,37 +150,41 @@ const initSlider = () => {
 }
 
 function maskPhone () {
-	const $inputPhoneMask = document.querySelector('.js-phone-mask');
-	const $inputValidation = document.querySelector('.js-phone-mask-fake');
+	const forms = document.querySelectorAll('form');
 
-	if ($inputPhoneMask) {
-		let maskOptions = {
-			mask: '+{998} ( 00 ) 000 - 00 - 00',
-			lazy: false
-		};
+	forms.forEach(formEl => {
+		const $inputPhoneMask = formEl.querySelector('.js-phone-mask');
+		const $inputValidation = formEl.querySelector('.js-phone-mask-fake');
 
-		const mask = IMask($inputPhoneMask, maskOptions);
+		if ($inputPhoneMask) {
+			let maskOptions = {
+				mask: '+{998} ( 00 ) 000 - 00 - 00',
+				lazy: false
+			};
 
-		mask.on('accept', () => {
-			$inputValidation.value = mask.unmaskedValue;
+			const mask = IMask($inputPhoneMask, maskOptions);
 
-			if (mask.unmaskedValue === '') {
-				$inputPhoneMask.classList.remove('valid');
-			} else {
-				$inputPhoneMask.classList.add('valid');
-			}
-		});
+			mask.on('accept', () => {
+				$inputValidation.value = mask.unmaskedValue;
 
-		mask.on('complete', () => {
-			// console.log('complete');
-			$($inputValidation).addClass('valid');
-			$inputValidation.value = mask.value;
-		})
-	}
+				if (mask.unmaskedValue === '') {
+					$inputPhoneMask.classList.remove('valid');
+				} else {
+					$inputPhoneMask.classList.add('valid');
+				}
+			});
+
+			mask.on('complete', () => {
+				// console.log('complete');
+				$($inputValidation).addClass('valid');
+				$inputValidation.value = mask.value;
+			})
+		}
+	});
 }
 
 const formValidation = () => {
-	const validator = $("form[name='mailForm']").validate({
+	$("form[name='mailForm']").validate({
 		errorElement: 'div',
 		rules: {
 			name: 'required',
@@ -202,6 +217,8 @@ const formValidation = () => {
 			fileCheck: ''
 		},
 		invalidHandler: function(event, validator) {
+			console.log("Form invalidHandler", validator.errorList);
+
 			if (validator.errorList.length > 0) {
 				// Проверяем, есть ли ошибка в поле fileCheck
 				let fileCheckError = validator.errorList.some(function(error) {
@@ -209,7 +226,7 @@ const formValidation = () => {
 				});
 
 				if (fileCheckError) {
-					uploadFile();
+					uploadFile('file');
 				}
 			}
 		},
@@ -219,73 +236,172 @@ const formValidation = () => {
 			setTimeout(function () {
 				// form.submit();
 
-				sendPublication();
+				sendPublication("form[name='mailForm']");
+			}, 1000)
+		}
+	});
+
+	$("form[name='popupForm']").validate({
+		errorElement: 'div',
+		rules: {
+			name: 'required',
+			phone: {
+				required: true,
+				minlength: {
+					param: 12,
+				},
+			},
+			tg: 'required',
+			email: {
+				required: true,
+				email: true
+			},
+			fileCheck: 'required'
+		},
+		messages: {
+			name: '',
+			phone: {
+				required: '',
+				minlength: '',
+			},
+			tg: '',
+			email: {
+				required: '',
+				email: ''
+			},
+			fileCheck: ''
+		},
+		invalidHandler: function(event, validator) {
+			console.log("Form invalidHandler", validator.errorList);
+
+			if (validator.errorList.length > 0) {
+				// Проверяем, есть ли ошибка в поле fileCheck
+				let fileCheckError = validator.errorList.some(function(error) {
+					return error.element.name === 'fileCheck';
+				});
+
+				if (fileCheckError) {
+					uploadFile('fileForm');
+				}
+			}
+		},
+		submitHandler: function(form) {
+			console.log("Form submitted");
+
+			setTimeout(function () {
+				// form.submit();
+
+				sendPublication("form[name='popupForm']");
 			}, 1000)
 		}
 	});
 }
 
-const sendPublication = () => {
+const sendPublication = (wrapperName) => {
+	const wrapper = $(wrapperName);
+
 	const API = '';
 
-	const name = $("input[name='name']").val();
-	const phone = $("input[name='phone']").val().replace(/\s+/g, '');
+	// Собираем данные полей
+	const name = wrapper.find("input[name='name']").val();
+	const phone = wrapper.find("input[name='phone']").val().replace(/\s+/g, '');
+	const email = wrapper.find("input[name='email']").val();
+	const tg = wrapper.find("input[name='tg']").val();
+	const comment = wrapper.find("input[name='comment']").val();
+	const fileCheck = wrapper.find("input[name='file']")[0].files[0]; // Получаем файл
+	let job = null;
 
-	const data = {
-		name: name,
-		phone: phone
-	};
+	if (wrapperName === "form[name='mailForm']") {
+		job = wrapper.find("input[name='job']").val();
+	} else if (wrapperName === "form[name='popupForm']") {
+		job = wrapper.find(".popupForm__position-job").text();
+	}
 
-	$.ajax({
-		type: 'POST',
-		url: API,
-		data: JSON.stringify(data),
-		contentType: 'application/json',
-		cache: false,
-		success: function(data){
-			if(data.status!==undefined && data.status!==null && data.status==='success'){
-				console.log('Успешный ответ:', data);
+	// Создаем объект FormData
+	const formData = new FormData();
+	formData.append('name', name);
+	formData.append('phone', phone);
+	formData.append('email', email);
+	formData.append('tg', tg);
+	formData.append('job', job);
+	formData.append('comment', comment);
 
-				popup.open('form-success');
-			} else {
-				console.log('Ошибка:', data);
-			}
-		},
-		error: function(error) {
-			console.log('Ошибка при отправке данных:', error.status, error.statusText);
-		},
-	});
+	if (fileCheck) {
+		formData.append('fileCheck', fileCheck); // Добавляем файл в FormData
+	}
+
+	// Перебираем все пары ключ-значение в FormData и выводим в консоль
+	for (let pair of formData.entries()) {
+		console.log(`${pair[0]}: ${pair[1]}`);
+	}
+
+	if (wrapperName === "form[name='popupForm']") {
+		popup.close('popup-form');
+	}
+
+	popup.open('popup-success');
+
+	// $.ajax({
+	// 	type: 'POST',
+	// 	url: API,
+	// 	data: formData, // Отправляем FormData
+	// 	processData: false, // Не обрабатываем данные (нужно для FormData)
+	// 	contentType: false, // Не задаем заголовок contentType (нужно для FormData)
+	// 	cache: false,
+	// 	success: function(data) {
+	// 		if (data.status === 'success') {
+	// 			console.log('Успешный ответ:', data);
+	// 			popup.open('popup-success');
+	// 		} else {
+	// 			console.log('Ошибка:', data);
+	// 		}
+	// 	},
+	// 	error: function(error) {
+	// 		console.log('Ошибка при отправке данных:', error.status, error.statusText);
+	// 	},
+	// });
+}
+
+const loadingValidation = (target, hasError, type) => {
+	let wrapper = $(target).closest('.js-file-upload');
+
+	if (hasError) {
+		$(wrapper).addClass('has-error');
+
+		if (type === 'format') {
+			console.log("i18n.t('form.file.error.format')", i18n.t('form.file.error.format'));
+			$(wrapper).find('p.error').text(i18n.t('form.file.error.format'));
+		} else if (type === 'size') {
+			$(wrapper).find('p.error').text(i18n.t('form.file.error.size'));
+		} else if (type === 'file') {
+			$(wrapper).find('p.error').text(i18n.t('form.file.error.file'));
+		}
+
+		$(wrapper).find('input[name="fileCheck"]').val('');
+	} else {
+		$(wrapper).removeClass('has-error');
+		$(wrapper).find('input[name="fileCheck"]').val('true');
+	}
+
+	console.log('hasError', hasError);
+	console.log('value', $($(wrapper).find('input[name="fileCheck"]')).val());
 }
 
 const setEvents = () => {
 	const $inputFile = document.querySelector('#file');
-	$inputFile.addEventListener("change", uploadFile);
+	$inputFile.addEventListener("change", () => uploadFile($inputFile.id));
+
+	const $inputFileForm = document.querySelector('#fileForm');
+	$inputFileForm.addEventListener("change", () => uploadFile($inputFileForm.id));
 }
 
-const loadingValidation = (hasError, type) => {
-	if (hasError) {
-		$('.js-file-upload').addClass('has-error');
-
-		if (type === 'format') {
-			console.log("i18n.t('form.file.error.format')", i18n.t('form.file.error.format'));
-			$('.js-file-upload p.error').text(i18n.t('form.file.error.format'));
-		} else if (type === 'size') {
-			$('.js-file-upload p.error').text(i18n.t('form.file.error.size'));
-		} else if (type === 'file') {
-			$('.js-file-upload p.error').text(i18n.t('form.file.error.file'));
-		}
-	} else {
-		$('.js-file-upload').removeClass('has-error');
-	}
-}
-
-const uploadFile = (e) => {
-	const inputTarget = document.getElementById('file');
+const uploadFile = (idFile) => {
+	const inputTarget = document.getElementById(idFile);
 	const file = inputTarget.files[0];
 
 	if (!file) {
 		console.log('Загрузите файл CV');
-		loadingValidation(true, 'file');
+		loadingValidation(inputTarget, true, 'file');
 
 		return;
 	}
@@ -296,14 +412,14 @@ const uploadFile = (e) => {
 	// Проверяем, допустимо ли расширение файла
 	if (fileExtensions.indexOf(fileExtension) < 0) {
 		console.log('Проверяем, допустимо ли расширение файла');
-		loadingValidation(true, 'format');
+		loadingValidation(inputTarget, true, 'format');
 	}
 	// Проверяем, не превышает ли размер файла допустимый максимум
 	else if (file.size > fileMaxSize) {
 		console.log('Проверяем, не превышает ли размер файла допустимый максимум');
-		loadingValidation(true, 'size');
+		loadingValidation(inputTarget, true, 'size');
 	} else {
-		loadingValidation(false);
+		loadingValidation(inputTarget,false);
 	}
 }
 

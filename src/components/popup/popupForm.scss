@@ -1,0 +1,300 @@
+.popupForm {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: vc(24);
+	background: #FDF7EE;
+	border-radius: vc(20);
+	color: #1F2021;
+	margin: 0 auto;
+
+	&__position {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: vc(24);
+
+		&-job {
+			font-family: $font-Bogart;
+			font-weight: 600;
+			font-size: vc(23);
+			line-height: vc(23);
+			color: #1F2021;
+			margin-bottom: vc(2);
+		}
+
+		&-salary {
+			font-size: vc(16);
+			line-height: vc(20);
+			color: $color-black;
+		}
+	}
+
+	&__wrapper {
+		position: relative;
+		display: flex;
+		height: 100%;
+		flex: 1 1 auto;
+		justify-content: space-between;
+		width: vc(1128);
+
+		@include devices {
+			width: 100%;
+			flex-direction: column;
+			justify-content: flex-start;
+			padding: 0 vc(20);
+		}
+	}
+
+	&__left {
+		width: vc(552);
+
+		@include devices {
+			width: 100%;
+		}
+	}
+
+	&__right {
+		margin-top: vc(43);
+		width: vc(552);
+
+		@include devices {
+			margin-top: vc(70);
+			width: 100%;
+		}
+	}
+
+	&__title {
+		margin-bottom: vc(23);
+	}
+
+	&__scroll {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		@include devices {
+			max-height: vc(300);
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		@include devices {
+			align-items: center;
+		}
+	}
+
+	&__desc {
+		@include devices {
+			text-align: center;
+		}
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		&-row {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: vc(8);
+			margin-bottom: vc(12);
+
+			@include devices {
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+				width: 100%;
+			}
+		}
+
+		@include devices {
+			width: 100%;
+		}
+	}
+
+	&__file {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		height: vc(70);
+		margin-top: vc(30);
+
+		&.has-error {
+			margin-bottom: vc(20);
+
+			label {
+				border: 1px solid #FEA19B;
+			}
+
+			p.error {
+				opacity: 1;
+			}
+		}
+
+		p.error {
+			margin: vc(8) 0 0 vc(24);
+			font-size: vc(11);
+			line-height: vc(14);
+			color: #FF0000;
+			opacity: 0;
+		}
+
+		&-check {
+			width: 0;
+			height: 0;
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		label {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			padding: vc(16) vc(24);
+			border-radius: vc(16);
+			background: #F4EDE4;
+			border: 1px solid #F4EDE4;
+
+			input[type="file"] {
+				display: none;
+			}
+		}
+
+		&-icon {
+			width: vc(26);
+			height: vc(26);
+			margin-right: vc(12);
+		}
+
+		&-content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			width: 100%;
+		}
+
+		&-info {
+			font-size: vc(11);
+			line-height: vc(14);
+			color: #898072;
+			margin-bottom: vc(3);
+		}
+
+		&-name {
+			position: relative;
+			display: flex;
+			align-items: center;
+			font-size: vc(16);
+			line-height: vc(20);
+			color: #232324;
+			width: 100%;
+
+			&-default {
+				.is-has-file & {
+					opacity: 0;
+				}
+			}
+
+			&-value {
+				position: absolute;
+				opacity: 0;
+
+				.is-has-file & {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__input {
+		display: flex;
+		align-items: center;
+		width: vc(272);
+		height: vc(68);
+		border-radius: vc(16);
+		border: 1px solid #F4EDE4;
+		padding: vc(24);
+		background: #F4EDE4;
+		font-size: vc(16);
+		line-height: vc(20);
+		color: #232324;
+
+		&--long {
+			width: 100%;
+			margin-top: vc(30);
+		}
+
+		&.error {
+			color: #FF0000;
+			border: 1px solid #FEA19B;
+		}
+
+		@include devices {
+			width: 100%;
+		}
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: vc(16);
+		background: rgba($color-orange, 0.5);
+		transition: background 0.3s ease-in-out;
+		cursor: pointer;
+
+		@include desktop {
+			&:hover {
+				background: $color-orange;
+			}
+		}
+
+		&-wrapper {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			margin-top: vc(24);
+		}
+
+		&--back {
+			width: vc(181);
+			height: vc(56);
+			background: #171008;
+
+			@include devices {
+				width: vc(112);
+			}
+		}
+
+		&--send {
+			width: vc(363);
+			height: vc(56);
+
+			@include devices {
+				width: vc(182);
+			}
+		}
+
+		&-text {
+			font-weight: 600;
+			font-size: vc(13);
+			line-height: vc(16);
+			color: $color-white;
+		}
+	}
+
+	@include devices {
+		padding: vc(24);
+	}
+}

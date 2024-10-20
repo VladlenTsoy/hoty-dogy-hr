@@ -196,6 +196,7 @@ export default {
     init,
     resize,
     open,
+	close,
     addEvent,
 	getStatusTutorial,
 	updateStatusTutorial

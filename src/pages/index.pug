@@ -7,7 +7,7 @@ append vars
 
 block content
 	+b.home
-		+popup({id: `form-success`}).popup-success
+		+popup({id: `popup-success`}).popup-success
 			+b.popupSuccess
 				+e.IMG.img(src=`${baseDir}assets/images/icons/success-icon.svg` alt="")
 				+e.content
@@ -16,7 +16,7 @@ block content
 						span(data-i18n="success.text") Мы&nbsp;внимательно рассмотрим ваше резюме и&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время.
 					+e.BUTTON.btn-back.popup__close(type="button" data-i18n="success.btn") Спасибо!
 
-		//include ../components/product/product-1
+		include @components/popup/popupForm
 		//include ../components/product/product-2
 		//include ../components/product/product-3
 		//include ../components/product/product-4
@@ -30,7 +30,7 @@ block content
 		+b.home-intro
 			+e.wrapper
 				+e.IMG.bg(src=`${baseDir}assets/images/home/bg.jpg` alt="")
-				+e.content.js-popup-open(data-id=`form-success`)
+				+e.content
 					+e.title(data-aos="fade-up" data-i18n="intro.title") Добро пожаловать
 					+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext") Мы&nbsp;рады, что вы&nbsp;среди тех, кто первым познакомился с&nbsp;нашим лимитированным выпуском. Это ваш шаг к&nbsp;качеству и&nbsp;результатам, а&nbsp;мы&nbsp;гордимся быть частью этого пути. Впереди&nbsp;&mdash; новые достижения, которые мы&nbsp;покорим вместе.
 				+b.home-tab.js-tab-intro.is-open-tab
@@ -190,7 +190,7 @@ block content
 							+e.IMG.image-star-2(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
 							+e.IMG.image-star-3(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
 				+e.right
-					+e.FORM.form(action="" name="mailForm" data-aos="fade-up" data-aos-delay="300")
+					+e.FORM.form(action="" name="mailForm" enctype="multipart/form-data" data-aos="fade-up" data-aos-delay="300")
 						+e.form-row
 							+e.INPUT.input.js-input(type="text" name="name" id="name" placeholder="Ваше имя")
 							+e.INPUT.input-hide.required.js-phone-mask-fake(type="text" name="phone")
