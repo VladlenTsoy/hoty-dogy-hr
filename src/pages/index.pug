@@ -17,7 +17,7 @@ block content
 					+e.BUTTON.btn-back.popup__close(type="button" data-i18n="success.btn") Спасибо!
 
 		include @components/popup/popupForm
-		//include ../components/product/product-2
+		include @components/vacancy/vacancy-1
 		//include ../components/product/product-3
 		//include ../components/product/product-4
 		//include ../components/product/product-5
@@ -30,9 +30,9 @@ block content
 		+b.home-intro
 			+e.wrapper
 				+e.IMG.bg(src=`${baseDir}assets/images/home/bg.jpg` alt="")
-				+e.content
-					+e.title(data-aos="fade-up" data-i18n="intro.title") Добро пожаловать
-					+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext") Мы&nbsp;рады, что вы&nbsp;среди тех, кто первым познакомился с&nbsp;нашим лимитированным выпуском. Это ваш шаг к&nbsp;качеству и&nbsp;результатам, а&nbsp;мы&nbsp;гордимся быть частью этого пути. Впереди&nbsp;&mdash; новые достижения, которые мы&nbsp;покорим вместе.
+				+e.content.js-popup-open(data-id=`popup-vacancy-1`)
+					+e.title(data-aos="fade-up" data-i18n="intro.title")
+					+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext")
 				+b.home-tab.js-tab-intro.is-open-tab
 					+e.wrapper
 						+e.content

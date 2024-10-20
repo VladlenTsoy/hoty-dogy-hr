@@ -61,23 +61,21 @@
 
 
 			@include devices {
-				width: vc(358);
+				width: vc(350);
 				height: calc((var(--vh) * 79) / 100);
 				margin-bottom: 0;
-				//margin-top: 15%;
 			}
 		}
 
-		.popup-bars & {
-			height: vc(475);
-			max-width: vc(358);
+		.popup-vacancy & {
+			height: vc(494);
+			max-width: vc(500);
 
 			@include devices {
-				width: vc(358);
+				width: vc(350);
 				height: calc((var(--vh) * 79) / 100);
 				max-height: vc(430);
 				margin-bottom: 0;
-				margin-top: 15%;
 			}
 		}
 
