@@ -164,6 +164,11 @@ iframe {
 	font-size: vc(24);
 	line-height: vc(30);
 	color: #1F2021;
+
+	@include devices {
+		font-size: vc(19);
+		line-height: vc(24);
+	}
 }
 
 .simplebar-scrollbar:before {

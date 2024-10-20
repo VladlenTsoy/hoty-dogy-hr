@@ -13,6 +13,11 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
+
+		@include devices {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
 	&__logo {
@@ -23,14 +28,27 @@
 	&__list {
 		display: flex;
 		align-items: center;
+
+		@include devices {
+			flex-direction: column;
+			align-items: flex-start;
+		}
 	}
 
 	&__menu {
-		position: absolute;
-		left: 0;
-		right: 0;
 		margin: vc(4) auto 0;
-		width: vc(480);
+
+		@include desktop {
+			position: absolute;
+			left: 0;
+			right: 0;
+			width: vc(480);
+		}
+
+		@include devices {
+			width: 100%;
+			margin: vc(53) auto;
+		}
 	}
 
 	&__right {
@@ -54,6 +72,14 @@
 		@include desktop {
 			&:hover {
 				color: $color-orange;
+			}
+		}
+
+		@include devices {
+			margin-bottom: vc(26);
+
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -80,6 +106,11 @@
 			svg {
 				width: vc(24);
 				height: vc(24);
+
+				@include devices {
+					width: vc(26);
+					height: vc(26);
+				}
 			}
 
 			@include desktop {
@@ -87,6 +118,23 @@
 					background: $color-orange;
 				}
 			}
+
+			@include devices {
+				width: vc(172);
+			}
 		}
+	}
+
+	&__design {
+		font-weight: 300;
+		font-size: vc(11);
+		line-height: vc(14);
+		color: $color-white;
+		opacity: 0.5;
+		margin-top: vc(28);
+	}
+
+	@include devices {
+		padding: vc(70) vc(20);
 	}
 }

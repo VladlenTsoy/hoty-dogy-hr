@@ -91,4 +91,9 @@
 		line-height: vc(16);
 		color: #ACA497;
 	}
+
+	@include devices {
+		width: vc(350);
+		height: vc(164);
+	}
 }

@@ -18,6 +18,10 @@
 	&__logo {
 		display: block;
 		width: vc(82);
+
+		@include devices {
+			width: vc(67);
+		}
 	}
 
 	&__list {
@@ -108,6 +112,7 @@
 	}
 
 	@include devices {
-		padding: vc(44) vc(16);
+		margin-top: 0;
+		padding: vc(22) vc(20) vc(18);
 	}
 }

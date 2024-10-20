@@ -98,29 +98,22 @@ const initFileUpload = () => {
 }
 
 const initSlider = () => {
-	const $sliders = document.querySelectorAll('.js-slider');
-
-	$sliders.forEach(el => {
-		let popupImagesSwiper = new Swiper(el, {
-			slidesPerView: 1,
-			loop: true,
-			effect: "fade",
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-		});
-
-		swiperList.push(popupImagesSwiper);
-	});
-
-
 	const $slidersBonus = document.querySelectorAll('.js-slider-bonus');
 
 	$slidersBonus.forEach(el => {
 		let popupBonusSwiper = new Swiper(el, {
 			slidesPerView: 3,
-			spaceBetween: 20
+			spaceBetween: 20,
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+					spaceBetween: 18
+				},
+				768: {
+					slidesPerView: 3,
+					spaceBetween: 20
+				}
+			}
 		});
 
 		swiperList.push(popupBonusSwiper);

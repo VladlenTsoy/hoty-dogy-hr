@@ -52,6 +52,11 @@
 		justify-content: space-between;
 		padding-right: vc(12);
 	}
+
+	@include devices {
+		height: vc(72);
+		width: vc(333);
+	}
 }
 
 .home-tab-menu {
@@ -103,7 +108,6 @@
 	z-index: 5;
 	display: flex;
 	justify-content: center;
-	height: 100vh;
 	height: vc(506);
 	background: $color-white;
 	border-radius: vc(30);
@@ -117,6 +121,10 @@
 		width: 100%;
 		height: 100%;
 		border-radius: vc(20);
+
+		@include devices {
+			border-radius: vc(24);
+		}
 	}
 
 	&__wrapper {
@@ -128,6 +136,11 @@
 		height: vc(350);
 		background: $color-orange;
 		border-radius: vc(20);
+
+		@include devices {
+			height: vc(471);
+			border-radius: vc(24);
+		}
 	}
 
 	&__content {
@@ -139,7 +152,7 @@
 
 		@include devices {
 			width: 100%;
-			padding: 0 vc(16);
+			margin-bottom: 0;
 		}
 	}
 
@@ -151,6 +164,12 @@
 		text-transform: uppercase;
 		color: $color-white;
 		margin-bottom: vc(12);
+
+		@include devices {
+			font-size: vc(30);
+			line-height: vc(30);
+			margin-bottom: vc(12);
+		}
 	}
 
 	&__desc {
@@ -160,10 +179,17 @@
 		text-align: center;
 		color: $color-white;
 		width: vc(551);
+
+		@include devices {
+			font-size: vc(16);
+			line-height: vc(20);
+			width: 100%;
+		}
 	}
 
 	@include devices {
-		height: var(--vh);
+		height: vc(649);
+		padding: vc(12);
 	}
 }
 
@@ -199,7 +225,7 @@
 	}
 
 	@include devices {
-		padding: vc(238) 0 vc(150);
+		padding: vc(70) 0;
 	}
 }
 
@@ -216,6 +242,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: flex-start;
+
+		@include devices {
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+		}
 	}
 
 	&__item {
@@ -230,6 +262,15 @@
 
 		&:nth-child(2) {
 			margin: 0 vc(20);
+
+			@include devices {
+				margin: vc(12) ;
+			}
+		}
+
+		@include devices {
+			margin: 0;
+			width: vc(350);
 		}
 	}
 
@@ -245,11 +286,11 @@
 
 	&__name {
 		font-weight: 500;
-		font-size: 19px;
-		line-height: 24px;
+		font-size: vc(19);
+		line-height: vc(24);
 		text-align: center;
 		text-transform: uppercase;
-		color: $color-orange;
+		color: #873B00;
 		margin-bottom: vc(40);
 	}
 
@@ -259,6 +300,10 @@
 		text-align: center;
 		color: #898072;
 		width: vc(200);
+	}
+
+	@include devices {
+		padding: 0 0 vc(70);
 	}
 }
 
@@ -281,6 +326,7 @@
 
 		@include devices {
 			width: 100%;
+			align-items: center;
 		}
 	}
 
@@ -290,6 +336,11 @@
 
 	&__desc {
 		width: vc(552);
+
+		@include devices {
+			width: 100%;
+			text-align: center;
+		}
 	}
 
 	&__slider {
@@ -298,10 +349,19 @@
 		justify-content: center;
 		margin-top: vc(70);
 		width: vc(1128);
+
+		@include devices {
+			width: vc(327);
+		}
 	}
 
 	&__item {
 		position: relative;
+	}
+
+	@include devices {
+		align-items: flex-start;
+		padding: vc(70) vc(20);
 	}
 }
 
@@ -323,6 +383,12 @@
 		flex: 1 1 auto;
 		justify-content: space-between;
 		width: vc(1128);
+
+		@include devices {
+			width: 100%;
+			flex-direction: column;
+			justify-content: flex-start;
+		}
 	}
 
 	&__dialog {
@@ -332,6 +398,11 @@
 			width: vc(130);
 			bottom: vc(287);
 			left: vc(244);
+
+			@include devices {
+				left: vc(50);
+				bottom: vc(383);
+			}
 		}
 
 		&--2 {
@@ -339,16 +410,30 @@
 			width: vc(225);
 			bottom: vc(213);
 			left: vc(282);
+
+			@include devices {
+				left: vc(89);
+				bottom: vc(309);
+			}
 		}
 	}
 
 	&__left {
 		width: vc(552);
+
+		@include devices {
+			width: 100%;
+		}
 	}
 
 	&__right {
 		margin-top: vc(43);
 		width: vc(552);
+
+		@include devices {
+			margin-top: vc(70);
+			width: 100%;
+		}
 	}
 
 	&__title {
@@ -358,11 +443,19 @@
 
 	&__desc {
 		color: $color-white;
+
+		@include devices {
+			text-align: center;
+		}
 	}
 
 	&__content {
 		display: flex;
 		flex-direction: column;
+
+		@include devices {
+			align-items: center;
+		}
 	}
 
 	&__man {
@@ -370,6 +463,16 @@
 		left: 0;
 		bottom: vc(-1);
 		width: vc(259);
+
+		@include devices {
+			left: vc(30);
+			width: vc(257);
+		}
+	}
+
+	@include devices {
+		padding: vc(70) vc(20) 0;
+		min-height: vc(1245);
 	}
 }
 
@@ -389,15 +492,32 @@
 		flex-direction: column;
 		align-items: flex-start;
 		width: vc(1128);
+
+		@include devices {
+			width: 100%;
+			align-items: center;
+		}
+	}
+
+	&__content {
+		width: 100%;
 	}
 
 	&__list {
 		display: flex;
 		gap: vc(12);
+
+		@include devices {
+			flex-direction: column;
+		}
 	}
 
 	&__title {
 		margin-bottom: vc(24);
+	}
+
+	@include devices {
+		padding: vc(70) vc(20);
 	}
 }
 
@@ -451,15 +571,31 @@
 		flex: 1 1 auto;
 		justify-content: space-between;
 		width: vc(1128);
+
+		@include devices {
+			width: 100%;
+			flex-direction: column;
+			justify-content: flex-start;
+			padding: 0 vc(20);
+		}
 	}
 
 	&__left {
 		width: vc(552);
+
+		@include devices {
+			width: 100%;
+		}
 	}
 
 	&__right {
 		margin-top: vc(43);
 		width: vc(552);
+
+		@include devices {
+			margin-top: vc(70);
+			width: 100%;
+		}
 	}
 
 	&__title {
@@ -469,6 +605,16 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
+
+		@include devices {
+			align-items: center;
+		}
+	}
+
+	&__desc {
+		@include devices {
+			text-align: center;
+		}
 	}
 
 	&__form {
@@ -483,6 +629,13 @@
 			justify-content: space-between;
 			gap: vc(8);
 			margin-bottom: vc(12);
+
+			@include devices {
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+				width: 100%;
+			}
 		}
 	}
 
@@ -607,8 +760,6 @@
 
 		@include devices {
 			width: 100%;
-			padding: vc(19);
-			margin: 0 0 vc(8);
 		}
 	}
 
@@ -646,6 +797,14 @@
 			color: $color-white;
 			margin: 0 vc(10) vc(2);
 		}
+
+		@include devices {
+			width: 100%;
+		}
+	}
+
+	@include devices {
+		padding: vc(70) 0;
 	}
 }
 

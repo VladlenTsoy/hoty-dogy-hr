@@ -36,7 +36,9 @@ block content
 					+e.wrapper
 						+e.content
 							+e.IMG.icon(src=`${baseDir}assets/images/icons/search.svg` alt="")
-							+e.text Выберите доступную вакансию...
+							+e.text
+								span.for-desktop Выберите доступную вакансию...
+								span.for-devices Выберите вакансию...
 						+e.arrow
 							+svg("arrow")
 					+b.home-tab-menu
@@ -181,7 +183,7 @@ block content
 					+e.content
 						+e.title.title(data-aos="fade-up") АНКЕТА
 						+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Заполните анкету или свяжитесь с&nbsp;нами, чтобы узнать больше о&nbsp;доступных вакансиях.
-						+e.image
+						+e.image.for-desktop
 							+e.IMG.image-man(src=`${baseDir}assets/images/icons/man-form.svg` alt="")
 							+e.IMG.image-star-1(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
 							+e.IMG.image-star-2(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
