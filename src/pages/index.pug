@@ -7,15 +7,15 @@ append vars
 
 block content
 	+b.home
-		//+popup({id: `form-success`}).popup-success
-		//	+b.popupSuccess
-		//		+e.IMG.img(src=`${baseDir}assets/images/icons/success-icon.svg` alt="")
-		//		+e.content
-		//			+e.title(data-i18n="success.title") Заявка отправлена
-		//			+e.text
-		//				span(data-i18n="success.text") Вы&nbsp;среди тех, кто первым узнает о&nbsp;наших продуктах. Наш представитель свяжется с&nbsp;вами в&nbsp;ближайшее время
-		//			+e.BUTTON.btn-back.popup__close(type="button" data-i18n="success.btn") Спасибо!
-		//
+		+popup({id: `form-success`}).popup-success
+			+b.popupSuccess
+				+e.IMG.img(src=`${baseDir}assets/images/icons/success-icon.svg` alt="")
+				+e.content
+					+e.title(data-i18n="success.title") Ваше резюме успешно отправлено!
+					+e.text
+						span(data-i18n="success.text") Мы&nbsp;внимательно рассмотрим ваше резюме и&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время.
+					+e.BUTTON.btn-back.popup__close(type="button" data-i18n="success.btn") Спасибо!
+
 		//include ../components/product/product-1
 		//include ../components/product/product-2
 		//include ../components/product/product-3
@@ -30,7 +30,7 @@ block content
 		+b.home-intro
 			+e.wrapper
 				+e.IMG.bg(src=`${baseDir}assets/images/home/bg.jpg` alt="")
-				+e.content
+				+e.content.js-popup-open(data-id=`form-success`)
 					+e.title(data-aos="fade-up" data-i18n="intro.title") Добро пожаловать
 					+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext") Мы&nbsp;рады, что вы&nbsp;среди тех, кто первым познакомился с&nbsp;нашим лимитированным выпуском. Это ваш шаг к&nbsp;качеству и&nbsp;результатам, а&nbsp;мы&nbsp;гордимся быть частью этого пути. Впереди&nbsp;&mdash; новые достижения, которые мы&nbsp;покорим вместе.
 				+b.home-tab.js-tab-intro.is-open-tab
