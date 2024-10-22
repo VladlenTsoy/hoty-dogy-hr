@@ -7,142 +7,228 @@ append vars
 
 block content
 	+b.home
-		//+popup({id: `form-success`}).popup-success
-		//	+b.popupSuccess
-		//		+e.IMG.img(src=`${baseDir}assets/images/icons/success-icon.svg` alt="")
-		//		+e.content
-		//			+e.title(data-i18n="success.title") Заявка отправлена
-		//			+e.text
-		//				span(data-i18n="success.text") Вы&nbsp;среди тех, кто первым узнает о&nbsp;наших продуктах. Наш представитель свяжется с&nbsp;вами в&nbsp;ближайшее время
-		//			+e.BUTTON.btn-back.popup__close(type="button" data-i18n="success.btn") Спасибо!
-		//
-		//include ../components/product/product-1
-		//include ../components/product/product-2
-		//include ../components/product/product-3
-		//include ../components/product/product-4
-		//include ../components/product/product-5
-		//include ../components/product/product-6
-		//include ../components/product/product-7
+		+popup({id: `popup-success`}).popup-success
+			+b.popupSuccess
+				+e.IMG.img(src=`${baseDir}assets/images/icons/success-icon.svg` alt="")
+				+e.content
+					+e.title(data-i18n="success.title") Ваше резюме успешно отправлено!
+					+e.text
+						span(data-i18n="success.text") Мы&nbsp;внимательно рассмотрим ваше резюме и&nbsp;свяжемся с&nbsp;вами в&nbsp;ближайшее время.
+					+e.BUTTON.btn-back.popup__close(type="button" data-i18n="success.btn") Спасибо!
 
+		include @components/popup/popupForm
+		include @components/vacancy/vacancy-1
+		include @components/vacancy/vacancy-2
+		include @components/vacancy/vacancy-3
+
+		include @components/menu/menu
 		include @components/header/header
 
 		+b.home-intro
-			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="intro.title") Добро пожаловать
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext") Мы&nbsp;рады, что вы&nbsp;среди тех, кто первым познакомился с&nbsp;нашим лимитированным выпуском. Это ваш шаг к&nbsp;качеству и&nbsp;результатам, а&nbsp;мы&nbsp;гордимся быть частью этого пути. Впереди&nbsp;&mdash; новые достижения, которые мы&nbsp;покорим вместе.
-			+e.arrow
-				+e.arrow-wrapper.js-scroll-link(href="#section1" data-target="section1")
-					+e.arrow-text(data-i18n="intro.more") Больше интересного
-					+e.arrow-icon
-						+svg("arrow")
+			+e.wrapper
+				+e.IMG.bg(src=`${baseDir}assets/images/home/bg.jpg` alt="")
+				+e.content
+					+e.title(data-aos="fade-up" data-i18n="intro.title")
+					+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext")
+				+b.home-tab
+					+e.click.js-tab-intro.is-open-tab
+						+e.wrapper
+							+e.content
+								+e.IMG.icon(src=`${baseDir}assets/images/icons/search.svg` alt="")
+								+e.text
+									span.for-desktop Выберите доступную вакансию...
+									span.for-devices Выберите вакансию...
+							+e.arrow
+								+svg("arrow")
+					+b.home-tab-menu
+						+e.item.js-popup-open(data-id=`popup-vacancy-1`)
+							+e.text Повар
+							+e.arrow
+								+svg("arrow")
+						+e.item.js-popup-open(data-id=`popup-vacancy-2`)
+							+e.text Официант
+							+e.arrow
+								+svg("arrow")
+						+e.item.js-popup-open(data-id=`popup-vacancy-3`)
+							+e.text Уборщик
+							+e.arrow
+								+svg("arrow")
 
 
-		+b.home-about#section2
-			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-3.png` alt="")
+		+b.home-about#section1
 			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="about.title") О бренде
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="about.desc_1") BEFIT NUTRITION&nbsp;&mdash; это не&nbsp;просто продукты, это ваш союзник на&nbsp;пути к&nbsp;новым достижениям. Мы&nbsp;верим, что #[span.is-green каждый заслуживает лучшего, поэтому] создаём продукцию с&nbsp;бескомпромиссными стандартами качества. Наша миссия&nbsp;&mdash; помочь вам превзойти собственные ожидания и&nbsp;достичь целей.
-				+e.subtitle.subtitle(data-aos="fade-up" data-aos-delay="300" data-i18n="about.desc_2") BEFIT NUTRITION&nbsp;&mdash; выбор тех, кто не&nbsp;приемлет компромиссов и&nbsp;стремится к&nbsp;большему. Мы&nbsp;поддержим вас на&nbsp;каждом этапе этого пути.
+				+e.title.title(data-aos="fade-up" data-i18n="about.title") О НАС
+				+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150" data-i18n="about.desc_1") Мы&nbsp;лучшие в&nbsp;своем деле и&nbsp;каждый день становимся еще лучше, чтобы дарить вам вкус и&nbsp;качество, которым можно доверять.
+
 		+b.home-goal
-			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-4.png` alt="")
 			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="goal.title") движении к&nbsp;цели
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="goal.desc") #[span.is-green Мы&nbsp;создали линейку продуктов, чтобы поддерживать вас] на&nbsp;пути к&nbsp;новым достижениям. Каждый продукт BEFIT NUTRITION разработан для вашего максимального результата&nbsp;&mdash; будь&nbsp;то энергия, здоровье или восстановление.
+				+e.item(data-aos="fade-up")
+					+e.number 15
+					+e.name филиалов
+					+e.desc Быстро растущий бизнес 15&nbsp;новых точек за&nbsp;год
+				+e.item(data-aos="fade-up")
+					+e.number 200
+					+e.name хот-догов
+					+e.desc Ежедневно мы&nbsp;продаем 1000 хот-догов
+				+e.item(data-aos="fade-up")
+					+e.number 50
+					+e.name сотрудников
+					+e.desc 50&nbsp;довольных сотрудников за&nbsp;год
 
-		+b.home-vitamins#section3
+		+b.home-bonus#section3
 			+e.content
-				+e.title.title.for-desktop(data-aos="fade-up" data-i18n="vitamins.title_desk") Мультивитамины
-				+e.title.title.for-devices(data-aos="fade-up" data-i18n="vitamins.title_mobile") Мульти - #[br] витамины
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="vitamins.subtext") Комплекс витаминов для мужчин и&nbsp;женщин, поддерживающий здоровье и&nbsp;энергию на&nbsp;протяжении дня. Разработаны для тех, кто стремится быть в&nbsp;лучшей форме каждый день.
-			+e.slider.js-slider-products(data-aos="fade-up" data-aos-delay="300")
+				+e.title.title(data-aos="fade-up") ПЛЮСЫ РАБОТЫ
+				+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Мы&nbsp;предлагаем отличные условия работы, карьерный рост и&nbsp;поддержку, помогая вам достигать своих целей.
+			+e.slider.js-slider-bonus(data-aos="fade-up" data-aos-delay="300")
 				.swiper-wrapper
-					+e.item.swiper-slide
-						+product({
-							id: 1,
-							title: 'Multi Vitamin <br> for men',
-							img: 'vitamins/1.png'
-						}).product--vitamins
-					+e.item.swiper-slide
-						+product({
-							id: 2,
-							title: 'Multi Vitamin <br> for women',
-							img: 'vitamins/2.png'
-						}).product--vitamins
+					each item in data.bonus
+						+e.item.swiper-slide
+							+bonus(item)
 
-		+b.home-bars
-			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-3.png` alt="")
-			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="bars.title") Протеиновые #[br] батончики
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="bars.subtext") Быстрый и&nbsp;питательный перекус для тех, кто всегда в&nbsp;движении. Батончики поддерживают вашу энергию и&nbsp;физическую форму, удивляя насыщенным вкусом. Идеальный выбор для тех, кто ценит пользу и&nbsp;удовольствие.
-			+e.slider.js-slider-products(data-aos="fade-up" data-aos-delay="300")
-				.swiper-wrapper
-					+e.item.swiper-slide
-						+product({
-							id: 3,
-							title: 'COFFEE <br> LATTE',
-							img: 'bars/1.png'
-						}).product--bars
-					+e.item.swiper-slide
-						+product({
-							id: 4,
-							title: 'STRAWBERRY, <br> CREAM VANILLA & HAZELNUT',
-							img: 'bars/2.png'
-						}).product--bars
-					+e.item.swiper-slide
-						+product({
-							id: 5,
-							title: 'MANGO <br>& CASHEW',
-							img: 'bars/3.png'
-						}).product--bars
-					+e.item.swiper-slide
-						+product({
-							id: 6,
-							title: 'COCONUT, <br> CREAM & ALMOND',
-							img: 'bars/4.png'
-						}).product--bars
-					+e.item.swiper-slide
-						+product({
-							id: 7,
-							title: 'WILD <br> BERRIES',
-							img: 'bars/5.png'
-						}).product--bars
+		+b.home-faq#section4
+			+e.wrapper
+				+e.left
+					+e.content
+						+e.title.title(data-aos="fade-up") ОТВЕТЫ НА&nbsp;ВОПРОСЫ
+						+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Мы&nbsp;лучшие в&nbsp;своем деле и&nbsp;каждый день становимся лучше, чтобы радовать вас вкусом и&nbsp;качеством, которому можно доверять.
+						+e.IMG.man(src=`${baseDir}assets/images/icons/man.svg` alt="" data-aos="fade-right" data-aos-delay="300")
+						+e.IMG.dialog--1(src=`${baseDir}assets/images/icons/dialog-1.svg` alt="" data-aos="zoom-in-up" data-aos-delay="450" data-aos-duration="1000")
+						+e.IMG.dialog--2(src=`${baseDir}assets/images/icons/dialog-2.svg` alt="" data-aos="zoom-in-up" data-aos-delay="450" data-aos-duration="1000")
+				+e.right
+					.accordion
+						.accordion__item
+							.accordion__header(data-toggle='#faq1')
+								p Какова ваша миссия?
+								.accordion__icon
+									+svg("arrow")
+							#faq1.accordion__content
+								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
+						.accordion__item
+							.accordion__header(data-toggle='#faq2')
+								p Почему выбирают вас?
+								.accordion__icon
+									+svg("arrow")
+							#faq2.accordion__content
+								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
+						.accordion__item
+							.accordion__header(data-toggle='#faq3')
+								p Как можно стать частью вашей команды?
+								.accordion__icon
+									+svg("arrow")
+							#faq3.accordion__content
+								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
+						.accordion__item
+							.accordion__header(data-toggle='#faq4')
+								p Какие у вас стандарты качества?
+								.accordion__icon
+									+svg("arrow")
+							#faq4.accordion__content
+								p Наша миссия&nbsp;&mdash; создавать вкусные и&nbsp;качественные хот-доги, которым можно доверять, и&nbsp;радовать наших клиентов каждый день.
 
-		+b.home-promocode#section4
-			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="promocode.title") ПРОМОКОД
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="promocode.subtext") Используйте промокод и&nbsp; #[span.is-green получите&nbsp;10% скидку] на&nbsp;первый заказ в&nbsp;наших филиалах, или через наш колл-центр.
-				+e.btn.js-copy-code(data-aos="fade-up" data-aos-delay="300")
-					+e.btn-content
-						+e.btn-icon
-							+svg("copy")
-						+e.btn-text.js-copy-value BEFIT2024
-					+e.btn-blur
-						- for (let i = 1; i <= 16; i++)
-							+e.btn-blur-item
 
-				+e.text(data-aos="fade-up" data-aos-delay="450" data-i18n="promocode.date") Время ограничено&nbsp;&mdash; #[span.is-green успейте до&nbsp;24.10.24] и&nbsp;начните свой путь к&nbsp;результату.
+		+b.home-vacancy#section2
+			+e.wrapper
+				+e.title.title(data-aos="fade-up") ВАКАНСИИ
+				+e.content
+					+e.list
+						+b.vacancy.js-popup-open(data-aos="fade-up" data-aos-delay="150" data-id=`popup-vacancy-1`)
+							+e.top
+								+e.left
+									+e.icon-default
+										+svg("job-0")
+									+e.icon-job
+										+svg("job-1")
+								+e.right
+									+e.date 6 октября #[br] 2024 года
+							+e.content
+								+e.title Повар
+								+e.salary 6.000.000 сум
+								+e.desc Полный рабочий день, #[br] сменный график
+						+b.vacancy.js-popup-open(data-aos="fade-up" data-aos-delay="150" data-id=`popup-vacancy-2`)
+							+e.top
+								+e.left
+									+e.icon-default
+										+svg("job-0")
+									+e.icon-job
+										+svg("job-2")
+								+e.right
+									+e.date 6 октября #[br] 2024 года
+							+e.content
+								+e.title Официант
+								+e.salary 2.500.000 сум
+								+e.desc Полный рабочий день, #[br] сменный график
+						+b.vacancy.js-popup-open(data-aos="fade-up" data-aos-delay="150" data-id=`popup-vacancy-3`)
+							+e.top
+								+e.left
+									+e.icon-default
+										+svg("job-0")
+									+e.icon-job
+										+svg("job-3")
+								+e.right
+									+e.date 6 октября #[br] 2024 года
+							+e.content
+								+e.title Уборщик
+								+e.salary 1.800.000 сум
+								+e.desc Полный рабочий день, #[br] сменный график
+						+b.vacancy--info(data-aos="fade-up" data-aos-delay="150")
+							+e.info
+								+e.info-bold Вы посмотрели #[br] все вакансии
+								+e.info-text На&nbsp;данный момент #[br] больше вакансий нет
 
-		+b.home-form
-			+e.IMG.bg-1(src=`${baseDir}assets/images/home/circle-5.png` alt="")
-			+e.content
-				+e.title.title(data-aos="fade-up" data-i18n="form.title") Узнайте #[br] первыми
-				+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="form.subtext") Присоединяйтесь к&nbsp;сообществу тех, кто выбирает лучшее. Оставьте свои контакты, и&nbsp;мы&nbsp;будем держать вас в&nbsp;курсе новинок и&nbsp;эксклюзивных предложений BEFIT NUTRITION.
-			+e.FORM.form(action="" name="mailForm" data-aos="fade-up" data-aos-delay="300")
-				+e.form-row
-					+e.INPUT.input.js-input(type="text" name="name" id="name" placeholder="Ваше имя")
-					+e.INPUT.input-hide.required.js-phone-mask-fake(type="text" name="phone")
-					+e.INPUT.input.js-phone-mask(placeholder="+998 ( __ ) ___ - __ - __")
-				+e.BUTTON.btn(data-i18n="form.btn") Оставить контакты
 
-		+b.home-contacts#section5
-			+e.IMG.bg-1.for-devices(src=`${baseDir}assets/images/home/circle-6.png` alt="")
-			+e.title.title(data-aos="fade-up" data-i18n="contacts") МЫ ЗДЕСЬ
-			+e.content(data-aos="fade-up" data-aos-delay="150")
-				+e.A.btn(href="https://instagram.com/befitnutrition.uz" target="_blank")
-					+e.IMG.btn-border.for-devices(src=`${baseDir}assets/images/icons/border-mobile.svg` alt="")
-					+e.IMG.btn-border.for-desktop(src=`${baseDir}assets/images/icons/border.svg` alt="")
-					span Instagram
-				+e.A.btn(href="tel:+998555180770" target="_blank")
-					+e.IMG.btn-border.for-devices(src=`${baseDir}assets/images/icons/border-mobile.svg` alt="")
-					+e.IMG.btn-border.for-desktop(src=`${baseDir}assets/images/icons/border.svg` alt="")
-					span +998 (55) 518 - 07 - 70
+		+b.home-form#section5
+			+e.wrapper
+				+e.left
+					+e.content
+						+e.title.title(data-aos="fade-up") АНКЕТА
+						+e.desc.subtitle(data-aos="fade-up" data-aos-delay="150") Заполните анкету или свяжитесь с&nbsp;нами, чтобы узнать больше о&nbsp;доступных вакансиях.
+						+e.image.for-desktop(data-aos="fade-up" data-aos-delay="300")
+							+e.IMG.image-man(src=`${baseDir}assets/images/icons/man-form.svg` alt="")
+							+e.IMG.image-star-1(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
+							+e.IMG.image-star-2(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
+							+e.IMG.image-star-3(src=`${baseDir}assets/images/icons/form-star.svg` alt="")
+				+e.right
+					+e.FORM.form(action="" name="mailForm" enctype="multipart/form-data" data-aos="fade-up" data-aos-delay="300")
+						+e.form-row
+							+e.INPUT.input.js-input(type="text" name="name" id="name" placeholder="Ваше имя")
+							+e.INPUT.input-hide.required.js-phone-mask-fake(type="text" name="phone")
+							+e.INPUT.input.js-phone-mask(placeholder="+998 ( __ ) ___ - __ - __")
+						+e.form-row
+							+e.INPUT.input(type="text" name="email" id="email" placeholder="Почта")
+							+e.INPUT.input(type="text" name="tg" id="tg" placeholder="@телеграм")
+
+						.select-menu
+							.select-btn
+								input.sBtn-text(type="text" name="job" id="job" placeholder="Выберите должность")
+								.select-btn__icon
+									+svg("arrow")
+							ul.options
+								li.option
+									span.option-text Повар
+								li.option
+									span.option-text Официант
+								li.option
+									span.option-text Уборщик
+
+						+e.INPUT.input--long(type="text" name="comment" id="comment" placeholder="Комментарий к CV...")
+
+						+e.file.js-file-upload
+							label
+								input(type="file" name="file" id="file")
+								+e.file-icon
+									+svg("file")
+								+e.file-content
+									+e.file-info максимальный вес - 15 MB
+									+e.file-name.js-file-name
+										+e.file-name-default Прикрепить файл CV
+										+e.file-name-value#filename
+							p.error
+							+e.INPUT.file-check(type="text" name="fileCheck" id="fileCheck")
+						+e.BUTTON.btn
+							+e.btn-icon--1
+								+svg("btn-icon")
+							+e.btn-text Отправить анкету
+							+e.btn-icon--2
+								+svg("btn-icon")
+
+		include @components/footer/footer

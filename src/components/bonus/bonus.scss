@@ -1,0 +1,62 @@
+.bonus {
+	position: relative;
+	overflow: hidden;
+	border-radius: vc(30);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: vc(360);
+	height: vc(494);
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__content {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: vc(30);
+
+		@include devices {
+			padding: vc(27);
+		}
+	}
+
+	&__title {
+		font-family: $font-Bogart;
+		font-weight: 600;
+		font-size: vc(23);
+		line-height: vc(23);
+		color: #F2F3F5;
+		margin-bottom: vc(6);
+
+		@include devices {
+			font-size: vc(21);
+			line-height: vc(21);
+		}
+	}
+
+	&__desc {
+		font-size: vc(16);
+		line-height: vc(20);
+		color: #F2F3F5;
+
+		@include devices {
+			font-size: vc(15);
+			line-height: vc(18);
+		}
+	}
+
+	@include devices {
+		width: vc(327);
+		height: vc(450);
+	}
+}

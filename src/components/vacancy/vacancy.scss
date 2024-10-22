@@ -1,0 +1,99 @@
+.vacancy {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: vc(20);
+	background: #FDF7EE;
+	border-radius: vc(24);
+	width: vc(253);
+	height: vc(164);
+
+	&--info {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		margin-bottom: vc(12);
+	}
+
+	&__date {
+		font-size: vc(13);
+		line-height: vc(16);
+		color: #989797;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&-bold {
+			font-family: $font-Bogart;
+			font-weight: 600;
+			font-size: vc(16);
+			line-height: vc(16);
+			color: #1F2021;
+			margin-bottom: vc(2);
+			text-align: center;
+		}
+
+		&-text {
+			font-size: vc(13);
+			line-height: vc(16);
+			text-align: center;
+			color: #ACA497;
+		}
+	}
+
+	&__left {
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon {
+		&-default {
+			width: vc(40);
+			height: vc(40);
+		}
+
+		&-job {
+			width: vc(40);
+			height: vc(40);
+			margin-left: vc(-16);
+		}
+	}
+
+	&__title {
+		font-family: $font-Bogart;
+		font-weight: 600;
+		font-size: vc(16);
+		line-height: vc(16);
+		color: #1F2021;
+		margin-bottom: vc(2);
+	}
+
+	&__salary {
+		font-size: vc(13);
+		line-height: vc(16);
+		color: $color-black;
+		margin-bottom: vc(6);
+	}
+
+	&__desc {
+		font-size: vc(13);
+		line-height: vc(16);
+		color: #ACA497;
+	}
+
+	@include devices {
+		width: vc(350);
+		height: vc(164);
+	}
+}

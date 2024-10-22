@@ -1,11 +1,9 @@
 .header {
-	position: absolute;
-	top: vc(4);
-	left: 0;
-	right: 0;
+	position: relative;
 	z-index: 20;
 	display: flex;
 	justify-content: center;
+	margin-top: vc(4);
 	padding: vc(18) vc(76) vc(22);
 	border-radius: vc(30);
 	background: $color-white;
@@ -20,6 +18,10 @@
 	&__logo {
 		display: block;
 		width: vc(82);
+
+		@include devices {
+			width: vc(67);
+		}
 	}
 
 	&__list {
@@ -44,6 +46,7 @@
 		border-radius: vc(16);
 		background: $color-orange;
 		margin-left: vc(12);
+		cursor: pointer;
 
 		&-icon {
 			width: vc(8);
@@ -109,7 +112,63 @@
 		}
 	}
 
+	ul.hamburger {
+		display:block;
+
+		li {
+			height: 2px;
+			background: #292D32;
+			border-radius: 50px;
+			content:'';
+			position:relative;
+			transition:.25s ease-in-out;
+
+			&:nth-child(1) {
+				top:0;
+			}
+
+			&:nth-child(2) {
+				top: vc(4);
+			}
+
+			&:nth-child(3) {
+				top: vc(8);
+			}
+		}
+	}
+
+	.hamburger-container {
+		margin-left: vc(16);
+		width: vc(30);
+		height: vc(30);
+		cursor: pointer;
+		padding: vc(8) vc(3);
+
+		&.is-active {
+			li {
+				&:nth-child(1) {
+					transform:rotate(35deg);
+					top: vc(6) !important;
+				}
+
+				&:nth-child(2) {
+					transform:rotate(-35deg);
+				}
+
+				&:nth-child(3) {
+					opacity: 0;
+				}
+			}
+		}
+	}
+
 	@include devices {
-		padding: vc(44) vc(16);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		margin-top: 0;
+		padding: vc(22) vc(20) vc(18);
+		box-shadow: 0 vc(3) vc(8) rgba(180, 180, 180, 0.25);
 	}
 }

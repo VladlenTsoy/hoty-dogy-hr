@@ -1,0 +1,6 @@
+mixin bonus(props = {})
+	+b.bonus&attributes(attributes)
+		+e.IMG.img(src=`${baseDir}assets/images/bonus/${props.id}.jpg` alt="")
+		+e.content
+			+e.title!= props.title
+			+e.desc!= props.desc

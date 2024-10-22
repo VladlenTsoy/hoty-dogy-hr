@@ -14,10 +14,15 @@
 @import '@components/header/header';
 @import '@components/footer/footer';
 @import '@components/lazyBlur/lazyBlur';
-@import '@components/product/product';
 @import '@components/popup/popup';
-@import '@components/popup/popupVitamins';
-@import '@components/popup/popupBars';
+@import '@components/bonus/bonus';
+
+@import '@components/popup/popupVacancy';
 @import '@components/popup/popupSuccess';
+@import '@components/popup/popupForm';
+@import '@components/accordion/accordion';
+@import '@components/vacancy/vacancy';
+@import '@components/selectMenu/selectMenu';
+@import '@components/menu/menu';
 
 @import '@pages/home/home';

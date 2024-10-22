@@ -37,8 +37,6 @@
 		z-index: 1;
 		border-radius: vc(24);
 		width: 100%;
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), rgba(217, 217, 217, 0.1);
-		backdrop-filter: blur(5px);
 		transform: scale(0.9);
 		transition: transform $transition;
 
@@ -57,29 +55,28 @@
 			transform: none;
 		}
 
-		.popup-vitamins & {
-			height: vc(406);
-			max-width: vc(742);
-			margin-bottom: vc(20);
+		.popup-form & {
+			width: vc(600);
+			// min-height: vc(545);
+			height: vc(494);
 
 			@include devices {
-				width: vc(358);
+				width: vc(350);
 				height: calc((var(--vh) * 79) / 100);
+				max-height: vc(475);
 				margin-bottom: 0;
-				//margin-top: 15%;
 			}
 		}
 
-		.popup-bars & {
-			height: vc(475);
-			max-width: vc(358);
+		.popup-vacancy & {
+			height: vc(494);
+			max-width: vc(500);
 
 			@include devices {
-				width: vc(358);
+				width: vc(350);
 				height: calc((var(--vh) * 79) / 100);
-				max-height: vc(430);
+				max-height: vc(475);
 				margin-bottom: 0;
-				margin-top: 15%;
 			}
 		}
 
@@ -243,7 +240,7 @@
 			}
 
 			.swiper-pagination-bullet-active {
-				background-color: $color-green;
+				// background-color: $color-green;
 			}
 
 			@include devices {

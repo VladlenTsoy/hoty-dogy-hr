@@ -1,0 +1,79 @@
+.select-menu {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: vc(68);
+	margin-bottom: vc(12);
+	font-size: vc(16);
+	line-height: vc(20);
+	color: #898072;
+
+	.sBtn-text {
+		pointer-events: none;
+		color: #232324;
+		height: 100%;
+		width: 100%;
+		border: 1px solid #FDF7EE;
+		border-radius: vc(16);
+		padding: vc(24);
+		background: #FDF7EE;
+
+		&.error {
+			color: #FF0000;
+			border: 1px solid #FEA19B;
+		}
+	}
+}
+.select-menu .select-btn {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	justify-content: space-between;
+	width: 100%;
+}
+.select-menu .options {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow-y: auto;
+	max-height: 295px;
+	margin-top: 10px;
+	border-radius: vc(16);
+	padding: vc(16) vc(24);
+	color: #222222;
+	background: #FDF7EE;
+	transform: translateY(85%);
+	box-shadow: 0 vc(3) vc(8) rgba(180, 180, 180, 0.6);
+	opacity: 0;
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	pointer-events: none;
+}
+.select-menu .options .option {
+	display: flex;
+	cursor: pointer;
+	padding: vc(12) 0;
+	align-items: center;
+}
+
+.select-btn__icon {
+	position: absolute;
+	right: vc(24);
+	width: vc(24);
+	height: vc(24);
+	transform: rotate(-90deg);
+	transition: transform 0.3s ease-in-out;
+}
+
+.select-menu.active .select-btn__icon {
+	transform: rotate(0deg);
+}
+
+.select-menu.active .options {
+	display: block;
+	z-index: 10;
+	opacity: 1;
+	transform: translateY(105%);
+	pointer-events: auto;
+}

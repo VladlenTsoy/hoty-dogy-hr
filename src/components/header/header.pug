@@ -14,9 +14,15 @@
 					+e.IMG.lang-img(src=`${baseDir}assets/images/icons/ru.png` alt="")
 				+e.lang.js-lang-uzb(type="button" data-lang="uzb")
 					+e.IMG.lang-img(src=`${baseDir}assets/images/icons/uzb.png` alt="")
-			+e.btn
+			+e.btn.for-desktop.js-scroll-link(href="#section5" data-target="section5")
 				+e.btn-icon--1
 					+svg("btn-icon")
 				+e.btn-text Заполнить анкету
 				+e.btn-icon--2
 					+svg("btn-icon")
+			.hamburger-container.for-devices
+				ul.hamburger
+					li
+					li
+					li
+
