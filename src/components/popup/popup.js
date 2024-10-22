@@ -123,8 +123,6 @@ const openOnClickJsPopupOpen = (e) => {
 
 		const parentElement = e.currentTarget.closest('.popupVacancy');
 
-		console.log('parentElement', parentElement);
-
 		if (parentElement) {
 			// Получаем текст из .js-vacancy-job
 			const jobText = parentElement.querySelector('.js-vacancy-job').textContent;
@@ -159,12 +157,8 @@ const openOnClickJsPopupOpen = (e) => {
 			e.currentTarget.classList.add('is-open');
 		}
 
-		// console.log('e.currentTarget.dataset.id', e.currentTarget.dataset.id);
-
 		open(e.currentTarget.dataset.id);
 	}
-
-	console.log('e.currentTarget.dataset.id', e.currentTarget.dataset.id);
 };
 
 const closeOnKeydown = (e) => {
@@ -187,8 +181,6 @@ const closeOnClickOutOfContainer = (e) => {
 const closeOnClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-
-    // console.log('close');
 
     close(e.currentTarget.closest('.popup').dataset.id);
 };

@@ -218,7 +218,7 @@ const formValidation = () => {
 			fileCheck: ''
 		},
 		invalidHandler: function(event, validator) {
-			console.log("Form invalidHandler", validator.errorList);
+			// console.log("Form invalidHandler", validator.errorList);
 
 			if (validator.errorList.length > 0) {
 				// Проверяем, есть ли ошибка в поле fileCheck
@@ -232,7 +232,7 @@ const formValidation = () => {
 			}
 		},
 		submitHandler: function(form) {
-			console.log("Form submitted");
+			// console.log("Form submitted");
 
 			setTimeout(function () {
 				// form.submit();
@@ -273,7 +273,7 @@ const formValidation = () => {
 			fileCheck: ''
 		},
 		invalidHandler: function(event, validator) {
-			console.log("Form invalidHandler", validator.errorList);
+			// console.log("Form invalidHandler", validator.errorList);
 
 			if (validator.errorList.length > 0) {
 				// Проверяем, есть ли ошибка в поле fileCheck
@@ -287,7 +287,7 @@ const formValidation = () => {
 			}
 		},
 		submitHandler: function(form) {
-			console.log("Form submitted");
+			// console.log("Form submitted");
 
 			setTimeout(function () {
 				// form.submit();
@@ -370,7 +370,6 @@ const loadingValidation = (target, hasError, type) => {
 		$(wrapper).addClass('has-error');
 
 		if (type === 'format') {
-			console.log("i18n.t('form.file.error.format')", i18n.t('form.file.error.format'));
 			$(wrapper).find('p.error').text(i18n.t('form.file.error.format'));
 		} else if (type === 'size') {
 			$(wrapper).find('p.error').text(i18n.t('form.file.error.size'));
@@ -383,9 +382,6 @@ const loadingValidation = (target, hasError, type) => {
 		$(wrapper).removeClass('has-error');
 		$(wrapper).find('input[name="fileCheck"]').val('true');
 	}
-
-	console.log('hasError', hasError);
-	console.log('value', $($(wrapper).find('input[name="fileCheck"]')).val());
 }
 
 const setEvents = () => {
@@ -412,12 +408,12 @@ const uploadFile = (idFile) => {
 
 	// Проверяем, допустимо ли расширение файла
 	if (fileExtensions.indexOf(fileExtension) < 0) {
-		console.log('Проверяем, допустимо ли расширение файла');
+		console.log('недопустимое расширение файла');
 		loadingValidation(inputTarget, true, 'format');
 	}
 	// Проверяем, не превышает ли размер файла допустимый максимум
 	else if (file.size > fileMaxSize) {
-		console.log('Проверяем, не превышает ли размер файла допустимый максимум');
+		console.log('размер файла ревышает допустимый максимум');
 		loadingValidation(inputTarget, true, 'size');
 	} else {
 		loadingValidation(inputTarget,false);

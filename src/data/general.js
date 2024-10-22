@@ -6,8 +6,8 @@ const baseDir = GLOBAL_PATH;
 export default {
 	domain,
 	baseDir,
-	title: 'BEFIT NUTRITION',
-	description: 'Мы создали линейку продуктов, чтобы поддерживать вас на пути к новым достижениям. Каждый продукт BEFIT NUTRITION разработан для вашего максимального результата — будь то энергия, здоровье или восстановление.',
+	title: 'title',
+	description: 'desc',
 	share: {
 		default: {
 			title: '',
