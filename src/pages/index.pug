@@ -18,6 +18,8 @@ block content
 
 		include @components/popup/popupForm
 		include @components/vacancy/vacancy-1
+		include @components/vacancy/vacancy-2
+		include @components/vacancy/vacancy-3
 
 		include @components/menu/menu
 		include @components/header/header
@@ -25,28 +27,29 @@ block content
 		+b.home-intro
 			+e.wrapper
 				+e.IMG.bg(src=`${baseDir}assets/images/home/bg.jpg` alt="")
-				+e.content.js-popup-open(data-id=`popup-vacancy-1`)
+				+e.content
 					+e.title(data-aos="fade-up" data-i18n="intro.title")
 					+e.desc.subtext(data-aos="fade-up" data-aos-delay="150" data-i18n="intro.subtext")
-				+b.home-tab.js-tab-intro.is-open-tab
-					+e.wrapper
-						+e.content
-							+e.IMG.icon(src=`${baseDir}assets/images/icons/search.svg` alt="")
-							+e.text
-								span.for-desktop Выберите доступную вакансию...
-								span.for-devices Выберите вакансию...
-						+e.arrow
-							+svg("arrow")
+				+b.home-tab
+					+e.click.js-tab-intro.is-open-tab
+						+e.wrapper
+							+e.content
+								+e.IMG.icon(src=`${baseDir}assets/images/icons/search.svg` alt="")
+								+e.text
+									span.for-desktop Выберите доступную вакансию...
+									span.for-devices Выберите вакансию...
+							+e.arrow
+								+svg("arrow")
 					+b.home-tab-menu
-						+e.item
+						+e.item.js-popup-open(data-id=`popup-vacancy-1`)
 							+e.text Повар
 							+e.arrow
 								+svg("arrow")
-						+e.item
+						+e.item.js-popup-open(data-id=`popup-vacancy-2`)
 							+e.text Официант
 							+e.arrow
 								+svg("arrow")
-						+e.item
+						+e.item.js-popup-open(data-id=`popup-vacancy-3`)
 							+e.text Уборщик
 							+e.arrow
 								+svg("arrow")
@@ -128,7 +131,7 @@ block content
 				+e.title.title(data-aos="fade-up") ВАКАНСИИ
 				+e.content
 					+e.list
-						+b.vacancy(data-aos="fade-up" data-aos-delay="150")
+						+b.vacancy.js-popup-open(data-aos="fade-up" data-aos-delay="150" data-id=`popup-vacancy-1`)
 							+e.top
 								+e.left
 									+e.icon-default
@@ -141,7 +144,7 @@ block content
 								+e.title Повар
 								+e.salary 6.000.000 сум
 								+e.desc Полный рабочий день, #[br] сменный график
-						+b.vacancy(data-aos="fade-up" data-aos-delay="150")
+						+b.vacancy.js-popup-open(data-aos="fade-up" data-aos-delay="150" data-id=`popup-vacancy-2`)
 							+e.top
 								+e.left
 									+e.icon-default
@@ -154,7 +157,7 @@ block content
 								+e.title Официант
 								+e.salary 2.500.000 сум
 								+e.desc Полный рабочий день, #[br] сменный график
-						+b.vacancy(data-aos="fade-up" data-aos-delay="150")
+						+b.vacancy.js-popup-open(data-aos="fade-up" data-aos-delay="150" data-id=`popup-vacancy-3`)
 							+e.top
 								+e.left
 									+e.icon-default

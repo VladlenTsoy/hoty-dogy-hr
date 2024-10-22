@@ -14,10 +14,15 @@
 	width: vc(744);
 	background: $color-white;
 	border-radius: vc(58);
-	padding: vc(11) vc(12);
 	box-shadow: 0 vc(3) vc(8) rgba(180, 180, 180, 0.25);
 	transform: translateY(50%);
-	cursor: pointer;
+
+	&__click {
+		height: 100%;
+		width: 100%;
+		padding: vc(11) vc(12);
+		cursor: pointer;
+	}
 
 	&__icon {
 		width: vc(50);
@@ -72,10 +77,12 @@
 	padding: vc(24);
 	opacity: 0;
 	transform: translateY(80%);
+	pointer-events: none;
 
 	.is-open-tab & {
 		opacity: 1;
 		transform: translateY(100%);
+		pointer-events: auto;
 	}
 
 	.is-loaded & {
@@ -87,16 +94,24 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: vc(18);
+		cursor: pointer;
+		color: #222222;
+		transition: color 0.4s ease-in-out;
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+
+		@include desktop {
+			&:hover {
+				color: $color-orange;
+			}
 		}
 	}
 
 	&__text {
 		font-size: vc(16);
 		line-height: vc(20);
-		color: #222222;
 	}
 
 	&__arrow {

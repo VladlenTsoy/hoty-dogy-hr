@@ -117,6 +117,37 @@ const openOnClickJsPopupOpen = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
+	if (e.currentTarget.classList.contains('popupVacancy__btn--send')) {
+
+		close(e.currentTarget.dataset.current);
+
+		const parentElement = e.currentTarget.closest('.popupVacancy');
+
+		console.log('parentElement', parentElement);
+
+		if (parentElement) {
+			// Получаем текст из .js-vacancy-job
+			const jobText = parentElement.querySelector('.js-vacancy-job').textContent;
+
+			// Получаем текст из .js-vacancy-salary
+			const salaryText = parentElement.querySelector('.js-vacancy-salary').textContent;
+
+			// Находим элемент .js-form-job в документе и заменяем его содержимое
+			const formJobElement = document.querySelector('.js-form-job');
+			if (formJobElement) {
+				formJobElement.textContent = jobText;
+			}
+
+			// Находим элемент .js-form-salary в документе и заменяем его содержимое
+			const formSalaryElement = document.querySelector('.js-form-salary');
+			if (formSalaryElement) {
+				formSalaryElement.textContent = salaryText;
+			}
+		} else {
+			console.error('Не найден родитель с классом .popupVacancy');
+		}
+	}
+
 	if (e.currentTarget.classList.contains('is-open')) {
 		if (e.currentTarget.classList.contains('home-nav')) {
 			e.currentTarget.classList.remove('is-open');
@@ -132,6 +163,8 @@ const openOnClickJsPopupOpen = (e) => {
 
 		open(e.currentTarget.dataset.id);
 	}
+
+	console.log('e.currentTarget.dataset.id', e.currentTarget.dataset.id);
 };
 
 const closeOnKeydown = (e) => {

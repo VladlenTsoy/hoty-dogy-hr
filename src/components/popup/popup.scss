@@ -57,12 +57,13 @@
 
 		.popup-form & {
 			width: vc(600);
-			min-height: vc(545);
-
+			// min-height: vc(545);
+			height: vc(494);
 
 			@include devices {
 				width: vc(350);
 				height: calc((var(--vh) * 79) / 100);
+				max-height: vc(475);
 				margin-bottom: 0;
 			}
 		}
@@ -74,7 +75,7 @@
 			@include devices {
 				width: vc(350);
 				height: calc((var(--vh) * 79) / 100);
-				max-height: vc(430);
+				max-height: vc(475);
 				margin-bottom: 0;
 			}
 		}

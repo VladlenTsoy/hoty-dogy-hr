@@ -153,6 +153,11 @@
 
 		@include devices {
 			width: 100%;
+			margin-bottom: vc(8);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 

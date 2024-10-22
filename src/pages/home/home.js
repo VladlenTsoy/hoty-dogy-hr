@@ -58,9 +58,10 @@ const initAccordion = () => {
 
 const initTabIntro = () => {
 	const tab = document.querySelector('.js-tab-intro');
+	const $homeTab = document.querySelector('.home-tab');
 
 	tab.addEventListener('click', function () {
-		tab.classList.toggle('is-open-tab');
+		$homeTab.classList.toggle('is-open-tab');
 	})
 }
 
