@@ -10,6 +10,6 @@ export const fonts = {
     type: 'asset/resource',
     generator: {
         // filename: 'assets/fonts/[name].[hash:8][ext]',
-        filename: 'assets/fonts/[name].[ext]',
+        filename: 'assets/fonts/[name][ext]',
     },
 };
